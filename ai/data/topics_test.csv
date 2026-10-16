@@ -1,0 +1,73 @@
+text,topic,language
+I have a big exam on Friday and I'm panicking,academic,en
+My grades are getting worse every semester,academic,en
+I can't finish my thesis on time,academic,en
+The deadline for my project is tonight,academic,en
+I was awake the whole night,sleep,en
+I can't sleep no matter what I try,sleep,en
+I sleep only a few hours every night,sleep,en
+I wake up many times during the night,sleep,en
+I have no one to talk to here,social,en
+My friends left me out again,social,en
+I feel alone even in a crowd,social,en
+I fought with my roommate,social,en
+My head hurts so much,physical,en
+I feel sick to my stomach,physical,en
+My heart beats very fast,physical,en
+I have pain in my back,physical,en
+I miss my family back home,home,en
+I want to see my parents,home,en
+I feel homesick today,home,en
+Life in this country feels strange to me,home,en
+I had tea with breakfast,other,en
+I'm watching a series,other,en
+The bus was late today,other,en
+I bought some fruit,other,en
+Pénteken nagy vizsgám lesz és pánikolok,academic,hu
+A jegyeim minden félévben rosszabbak,academic,hu
+Nem tudom időben befejezni a szakdolgozatomat,academic,hu
+Ma este jár le a projektem határideje,academic,hu
+Egész éjjel ébren voltam,sleep,hu
+Nem tudok aludni bármit is próbálok,sleep,hu
+Minden éjjel csak pár órát alszom,sleep,hu
+Éjszaka sokszor felébredek,sleep,hu
+Nincs itt senki akivel beszélgethetnék,social,hu
+A barátaim megint kihagytak,social,hu
+Egyedül érzem magam még a tömegben is,social,hu
+Összevesztem a szobatársammal,social,hu
+Nagyon fáj a fejem,physical,hu
+Rosszul van a gyomrom,physical,hu
+Nagyon gyorsan ver a szívem,physical,hu
+Fáj a hátam,physical,hu
+Hiányzik a családom otthon,home,hu
+Látni szeretném a szüleimet,home,hu
+Ma nagyon honvágyam van,home,hu
+Az élet ebben az országban furcsa nekem,home,hu
+Teát ittam reggelire,other,hu
+Egy sorozatot nézek,other,hu
+Ma késett a busz,other,hu
+Vettem egy kis gyümölcsöt,other,hu
+Баасан гаригт том шалгалттай болохоор сандарч байна,academic,mn
+Миний дүн семестр бүр муудаж байна,academic,mn
+Дипломын ажлаа цагтаа дуусгаж чадахгүй нь,academic,mn
+Төслийн маань хугацаа өнөө орой дуусна,academic,mn
+Би шөнөжин унтаагүй,sleep,mn
+Юу ч хийсэн унтаж чадахгүй байна,sleep,mn
+Шөнө бүр хэдхэн цаг л унтдаг,sleep,mn
+Шөнө олон удаа сэрдэг,sleep,mn
+Энд надтай ярих хүн алга,social,mn
+Найзууд маань намайг дахиад орхисон,social,mn
+Олон хүний дунд ч ганцаардаж байна,social,mn
+Өрөөний хамтрагчтайгаа муудалцсан,social,mn
+Толгой маш их өвдөж байна,physical,mn
+Дотор муухайрч байна,physical,mn
+Зүрх маш хурдан цохилж байна,physical,mn
+Нуруу өвдөж байна,physical,mn
+Гэртээ байгаа гэр бүлээ санаж байна,home,mn
+Аав ээжийгээ харахыг хүсэж байна,home,mn
+Өнөөдөр гэрээ их санаж байна,home,mn
+Энэ улс надад хачин санагддаг,home,mn
+Өглөөний цай уугаагүй,other,mn
+Би кино үзэж байна,other,mn
+Өнөөдөр автобус хоцорсон,other,mn
+Жимс худалдаж авсан,other,mn
