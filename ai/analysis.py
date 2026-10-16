@@ -1,6 +1,7 @@
 import joblib
 from emotion import encoder, analyze_emotion
 from safety import check_safety
+from support import build_support
 
 topic_model = joblib.load("ai/topic_model.joblib")
 TOPIC_THRESHOLD = 0.3
@@ -29,12 +30,14 @@ def analyze(text):
     if text == "":
         return {"error": "Please write a few words."}
 
-    return {
+    result =  {
         "text": text,
         "safety": check_safety(text),        # "crisis", "urgent_body" or None
         "emotion": analyze_emotion(text),    # emotion, confidence, clear, top3
         "topics": find_topics(text),         # ["sleep", "academic"]
     }
+    result["support"] = build_support(result)
+    return result
 
 if __name__ == "__main__":
     for sentence in ["I can't sleep because of my exam tomorrow",
