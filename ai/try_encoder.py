@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer, util
 
-encoder = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+encoder = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2", device="cpu")
 
 
 sentences = [
