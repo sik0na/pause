@@ -1,14 +1,4 @@
-
-import pytest
 import database
-
-
-@pytest.fixture(autouse=True)
-def fresh_database(tmp_path, monkeypatch):
-    """Before EVERY test: use a new, empty database in a temporary folder.
-    So tests never touch the real pause.db, and every test starts clean."""
-    monkeypatch.setattr(database, "DB_FILE", str(tmp_path / "test.db"))
-    database.create_tables()
 
 
 def test_create_user_and_log_in():
