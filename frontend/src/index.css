@@ -1,3 +1,8 @@
+/* The size of a box includes its padding and border (so width: 100% fits inside the card) */
+* {
+  box-sizing: border-box;
+}
+
 :root{
   --bg: #f8f5ff;
   --card: #ffffff;
@@ -7,6 +12,10 @@
   --muted: #6f6886;
   --border: #e8e2f5;
   --shadow: 0 6px 20px rgba(80, 56, 170, 0.08);
+
+  --surface: #f3effc;
+  --primary-dark: #6342ea;
+  --danger: #e5484d;
 }
 
 body{
@@ -39,4 +48,75 @@ h1{
 
 .muted{
   color: var(--muted);
+}
+
+label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--card);
+}
+
+button {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--surface);
+
+}
+button.secondary {
+  background: var(--surface);
+  color: var(--text);
+
+}
+
+.link-button{
+  background: none;
+  color: var(--primary);
+  padding: 0;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.link-button:hover {
+  background: none;
+  color: var(--primary-dark);
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.center {
+  text-align: center;
 }
