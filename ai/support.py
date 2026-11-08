@@ -47,4 +47,8 @@ def build_support(result):
     safety = None
     if result["safety"] is not None:
         safety = SAFETY[result["safety"]]
-    return {"safety": safety, "message": message, "tips": tips}
+    choices = {}
+    for name, chance in emotion.get("top3", []):
+        choices[name] = EMOTION_MESSAGES[name]
+
+    return {"safety": safety, "message": message, "tips": tips, "choices": choices}

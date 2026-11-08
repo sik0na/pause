@@ -16,6 +16,7 @@
   --surface: #f3effc;
   --primary-dark: #6342ea;
   --danger: #e5484d;
+  --danger-soft: #ffe8e8;
 }
 
 body{
@@ -121,7 +122,6 @@ button.secondary {
   text-align: center;
 }
 
-/* ----- Dashboard (Step 14) ----- */
 h2 {
   font-size: 19px;
   font-weight: 800;
@@ -129,10 +129,10 @@ h2 {
 }
 
 textarea {
-  resize: vertical;            /* the student can make it taller, but not wider */
+  resize: vertical;        
 }
 
-/* "Hi, anna 👋" on the left, "Log out" on the right */
+
 .hello {
   display: flex;
   justify-content: space-between;
@@ -144,7 +144,7 @@ textarea {
   margin: 0;
 }
 
-/* The starter chips, side by side, wrapping onto new lines */
+
 .starters {
   display: flex;
   flex-wrap: wrap;
@@ -163,15 +163,65 @@ textarea {
   background: var(--border);
 }
 
-/* The main "Check in" button: full width and bigger */
+
 .big-button {
   width: 100%;
   padding: 14px;
   font-size: 17px;
 }
 
-/* A button that can't be clicked right now (while "Thinking…") */
+
 button:disabled {
   opacity: 0.6;
   cursor: default;
+}
+
+
+.card + .card {
+  margin-top: 14px;
+}
+
+.safety {
+  background: var(--danger-soft);
+  border: 2px solid var(--danger);
+}
+
+.big-emoji{
+  font-size: 64px;
+  text-align: center;
+}
+
+.emotion-name{
+  color: var(--primary);
+}
+
+.choice{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choice {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.choice:hover {
+  background: var(--surface);
+}
+
+.tips{
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tips li {
+  margin-bottom: 8px;
+
+}
+
+.row{
+  display: flex;
+  gap: 8px;
 }
