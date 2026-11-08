@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Login from "./Login.jsx"
+import Dashboard from "./Dashboard.jsx"
 
 export default function App() {
   const [checking, setChecking] = useState(true)
@@ -29,14 +30,6 @@ export default function App() {
     return <Login onLoggedIn={setUsername}></Login>
   }
 
-  // Logged in (the real dashboard comes in Step 14)
-  return (
-    <main>
-      <div className="card">
-        <h1>Hi, {username} 👋</h1>
-        <p className="muted">You're logged in. Your dashboard comes in the next step.</p>
-        <button className="secondary" onClick={logout}>Log out</button>
-      </div>
-    </main>
-  )
+  // Logged in: the dashboard (it shows the greeting and the Log out button itself)
+  return <Dashboard username={username} onLogout={logout} />
 }

@@ -56,7 +56,7 @@ label {
   margin-bottom: 4px;
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 12px 14px;
   border: 2px solid transparent;
@@ -68,7 +68,7 @@ input {
   margin-bottom: 12px;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
   border-color: var(--primary);
   background: var(--card);
@@ -119,4 +119,59 @@ button.secondary {
 
 .center {
   text-align: center;
+}
+
+/* ----- Dashboard (Step 14) ----- */
+h2 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+textarea {
+  resize: vertical;            /* the student can make it taller, but not wider */
+}
+
+/* "Hi, anna 👋" on the left, "Log out" on the right */
+.hello {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.hello h1 {
+  margin: 0;
+}
+
+/* The starter chips, side by side, wrapping onto new lines */
+.starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.starter {
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+}
+
+.starter:hover {
+  background: var(--border);
+}
+
+/* The main "Check in" button: full width and bigger */
+.big-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+}
+
+/* A button that can't be clicked right now (while "Thinking…") */
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
