@@ -1,15 +1,5 @@
 import { useState } from "react"
-
-const EMOJIS = {
-
-    joy: "😊",
-    sadness: "😢",
-    anger: "😠",
-    fear: "😟",
-    surprise: "😮",
-    disgust: "🤢",
-    neutral: "😐",
-}
+import { EMOJIS } from "./emojis.js"
 
 export default function Results({result, onDone}) {
     const [chosen, setChosen] = useState(result.emotion.clear ? result.emotion.emotion : null)

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Results from "./Results.jsx"
+import History from "./History.jsx"
 
 const STARTERS = [
   "Exams are coming up and",
@@ -49,32 +50,35 @@ export default function Dashboard({ username, onLogout }) {
       </div>
 
       {result === null ? (
-        <form className="card" onSubmit={checkIn}>
-          <h2>What's on your mind?</h2>
-          <p className="muted small">Write it the way you'd text a friend. Only you can see this.</p>
-          {error && <p className="error">{error}</p>}
+        <>      
+            <form className="card" onSubmit={checkIn}>
+              <h2>What's on your mind?</h2>
+              <p className="muted small">Write it the way you'd text a friend. Only you can see this.</p>
+              {error && <p className="error">{error}</p>}
 
-          <textarea rows="4" value={text} placeholder="e.g. I'm worried about my exams"
-                    onChange={(e) => setText(e.target.value)} />
+              <textarea rows="4" value={text} placeholder="e.g. I'm worried about my exams"
+                        onChange={(e) => setText(e.target.value)} />
 
-          <p className="muted small">Need a starting point?</p>
-          <div className="starters">
-            {STARTERS.map((starter) => (
-              <button key={starter} type="button" className="starter" onClick={() => setText(starter + " ")}>
-                {starter}…
+              <p className="muted small">Need a starting point?</p>
+              <div className="starters">
+                {STARTERS.map((starter) => (
+                  <button key={starter} type="button" className="starter" onClick={() => setText(starter + " ")}>
+                    {starter}…
+                  </button>
+                ))}
+              </div>
+
+              <button type="submit" className="big-button" disabled={loading}>
+                {loading ? "Thinking…" : "Check in"}
               </button>
-            ))}
-          </div>
-
-          <button type="submit" className="big-button" disabled={loading}>
-            {loading ? "Thinking…" : "Check in"}
-          </button>
-        </form>
-      ) : (
+            </form>
+            <History />
+        </>
+    ) : (
        
         <Results result={result} onDone={startAgain} />
         
-      )}
+    )}
     </main>
   )
 }
