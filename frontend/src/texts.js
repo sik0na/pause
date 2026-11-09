@@ -55,6 +55,7 @@ export const TEXTS = {
     weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     months: ["January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December"],
+    calendarHint: "Each day shows the colour of your latest mood that day.",
 
   },
 
@@ -128,6 +129,7 @@ export const TEXTS = {
     weekdays: ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
     months: ["január", "február", "március", "április", "május", "június",
              "július", "augusztus", "szeptember", "október", "november", "december"],
+    calendarHint: "Minden nap az aznapi legutóbbi hangulatod színét mutatja.",
 
   },
 
@@ -203,5 +205,6 @@ export const TEXTS = {
     months: ["Нэгдүгээр сар", "Хоёрдугаар сар", "Гуравдугаар сар", "Дөрөвдүгээр сар",
              "Тавдугаар сар", "Зургаадугаар сар", "Долдугаар сар", "Наймдугаар сар",
              "Есдүгээр сар", "Аравдугаар сар", "Арван нэгдүгээр сар", "Арван хоёрдугаар сар"],
+        calendarHint: "Өдөр бүр тухайн өдрийн хамгийн сүүлийн сэтгэл санааны өнгөөр харагдана.",
   },
 }

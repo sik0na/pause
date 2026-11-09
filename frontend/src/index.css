@@ -338,3 +338,44 @@ button:disabled {
 button.secondary:hover {
   background: var(--border);
 }
+
+.mood-joy      { 
+  background: #ffe08a; 
+}
+.mood-sadness  { 
+  background: #a9c8ff; 
+}
+.mood-anger    { 
+  background: #ffb0a8; 
+}
+.mood-fear     { 
+  background: #d4b8ff; 
+}
+.mood-surprise { 
+  background: #ffd1a8; 
+}
+.mood-disgust  { 
+  background: #b8e6c2; 
+}
+.mood-neutral  { 
+  background: #e3e0ea; 
+}
+
+.legend{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 13px;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
