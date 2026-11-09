@@ -4,14 +4,8 @@ import { useState } from "react"
 import Results from "./Results.jsx"
 import History from "./History.jsx"
 
-const STARTERS = [
-  "Exams are coming up and",
-  "I didn't sleep well because",
-  "Today was actually good because",
-  "I miss home because",
-]
 
-export default function Dashboard({ username, onLogout }) {
+export default function Dashboard({ t, username, onLogout }) {
   const [text, setText] = useState("")
   const [result, setResult] = useState(null)       
   const [loading, setLoading] = useState(false)   
@@ -44,41 +38,37 @@ export default function Dashboard({ username, onLogout }) {
 
   return (
     <main>
-      <div className="hello">
-        <h1>Hi, {username} </h1>
-        <button type="button" className="link-button small" onClick={onLogout}>Log out</button>
-      </div>
+        <div className="hello">
+            <h1>{t.hello}, {username}</h1>
+            <button type="button" className="link-button small" onClick={onLogout}>{t.logOut}</button>
+        </div>
 
-      {result === null ? (
-        <>      
-            <form className="card" onSubmit={checkIn}>
-              <h2>What's on your mind?</h2>
-              <p className="muted small">Write it the way you'd text a friend. Only you can see this.</p>
-              {error && <p className="error">{error}</p>}
+        {result === null ? (
+            <>
+                <form onSubmit={checkIn} className="card">
+                    <h2>{t.mindTitle}</h2>
+                    <p className="muted small">{t.writeHint}</p>
+                    {error && <p className="error">{error}</p>}
 
-              <textarea rows="4" value={text} placeholder="e.g. I'm worried about my exams"
-                        onChange={(e) => setText(e.target.value)} />
+                    <textarea rows="4" value={text} placeholder={t.placeholder} onChange={(e) => setText(e.target.value)}/>
+                    <p className="muted class">{t.needStart}</p>
+                    <div className="starters">
+                        {t.starters.map((starter) => (
+                            <button className="starter" key={starter} type="button" onClick={() => setText(starter + "")}>
+                                {starter}...
+                            </button>
+                        ))}
+                    </div>
 
-              <p className="muted small">Need a starting point?</p>
-              <div className="starters">
-                {STARTERS.map((starter) => (
-                  <button key={starter} type="button" className="starter" onClick={() => setText(starter + " ")}>
-                    {starter}…
-                  </button>
-                ))}
-              </div>
-
-              <button type="submit" className="big-button" disabled={loading}>
-                {loading ? "Thinking…" : "Check in"}
-              </button>
-            </form>
-            <History />
-        </>
-    ) : (
-       
-        <Results result={result} onDone={startAgain} />
-        
-    )}
+                    <button className="big-button" type="submit" disabled={loading}>
+                        {loading ? t.thinking : t.checkIn}
+                    </button>
+                </form>
+                <History t={t}/>
+            </>
+        ) : (
+            <Results t={t} result={result} onDone={startAgain}/>
+        )}
     </main>
   )
 }

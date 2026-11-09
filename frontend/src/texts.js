@@ -12,6 +12,42 @@ export const TEXTS = {
     newHere: "New here?",
     haveAccount: "Already have an account?",
     createLink: "Create an account",
+    hello: "Hi",
+    logOut: "Log out",
+    mindTitle: "What's on your mind?",
+    writeHint: "Write it the way you'd text a friend. Only you can see this.",
+    placeholder: "e.g. I'm worried about my exams",
+    needStart: "Need a starting point?",
+    starters: [
+      "Exams are coming up and",
+      "I didn't sleep well because",
+      "Today was actually good because",
+      "I miss home because",
+    ],
+    checkIn: "Check in",
+    thinking: "Thinking…",
+    whichFits: "Which of these fits best?",
+    youFeel: "You seem to feel",
+    tipsTitle: "Tips for you",
+    saved: "Saved!",
+    inHistory: "You can see it in your history.",
+    writeAnother: "Write another",
+    saveTitle: "Save this check-in?",
+    onlyYou: "Only you can see your check-ins.",
+    save: "Save",
+    dontSave: "Don't save",
+    historyTitle: "Your history",
+    historyLoading: "Loading your history…",
+    noCheckins: "No check-ins yet. Your saved check-ins will appear here.",
+    emotions: {
+      joy: "joy", sadness: "sadness", anger: "anger", fear: "fear",
+      surprise: "surprise", disgust: "disgust", neutral: "neutral",
+    },
+    topics: {
+      academic: "studies", sleep: "sleep", social: "social life",
+      physical: "body", home: "home", other: "other",
+    },
+
   },
 
   hu: {
@@ -27,6 +63,49 @@ export const TEXTS = {
     newHere: "Új vagy itt?",
     haveAccount: "Már van fiókod?",
     createLink: "Fiók létrehozása",
+
+        // Dashboard
+    hello: "Szia",
+    logOut: "Kijelentkezés",
+    mindTitle: "Mi jár a fejedben?",
+    writeHint: "Írd le úgy, ahogy egy barátodnak írnál. Ezt csak te látod.",
+    placeholder: "pl. Aggódom a vizsgáim miatt",
+    needStart: "Kell egy kis segítség az induláshoz?",
+    starters: [
+      "Közelegnek a vizsgák és",
+      "Nem aludtam jól, mert",
+      "Ma egész jó napom volt, mert",
+      "Hiányzik az otthon, mert",
+    ],
+    checkIn: "Elküldöm",
+    thinking: "Gondolkodom…",
+
+    // Results
+    whichFits: "Melyik illik rád leginkább?",
+    youFeel: "Úgy tűnik, ezt érzed:",
+    tipsTitle: "Tippek neked",
+    saved: "Elmentve!",
+    inHistory: "Megtalálod az előzményeid között.",
+    writeAnother: "Új bejegyzés",
+    saveTitle: "Elmented ezt a bejegyzést?",
+    onlyYou: "A bejegyzéseidet csak te látod.",
+    save: "Mentés",
+    dontSave: "Nem mentem",
+
+    // History
+    historyTitle: "Előzmények",
+    historyLoading: "Előzmények betöltése…",
+    noCheckins: "Még nincs bejegyzésed. A mentett bejegyzéseid itt jelennek meg.",
+
+    emotions: {
+      joy: "öröm", sadness: "szomorúság", anger: "düh", fear: "félelem",
+      surprise: "meglepetés", disgust: "undor", neutral: "semleges",
+    },
+    topics: {
+      academic: "tanulmányok", sleep: "alvás", social: "kapcsolatok",
+      physical: "testi tünetek", home: "otthon", other: "egyéb",
+    },
+
   },
 
   mn: {
@@ -42,5 +121,47 @@ export const TEXTS = {
     newHere: "Шинэ хэрэглэгч үү?",
     haveAccount: "Бүртгэлтэй юу?",
     createLink: "Бүртгэл үүсгэх",
+
+    // Dashboard
+    hello: "Сайн уу",
+    logOut: "Гарах",
+    mindTitle: "Юу бодогдож байна?",
+    writeHint: "Найздаа бичиж байгаа юм шиг бич. Үүнийг зөвхөн та харна.",
+    placeholder: "ж: Шалгалтаасаа санаа зовж байна",
+    needStart: "Эхлэхэд тусламж хэрэгтэй юу?",
+    starters: [
+      "Шалгалт ойртож байгаа болохоор",
+      "Сайн унтаж чадсангүй, учир нь",
+      "Өнөөдөр үнэхээр сайхан өдөр байлаа, учир нь",
+      "Гэрээ санаж байна, учир нь",
+    ],
+    checkIn: "Илгээх",
+    thinking: "Бодож байна…",
+
+    // Results
+    whichFits: "Аль нь хамгийн тохирох вэ?",
+    youFeel: "Таны мэдрэмж:",
+    tipsTitle: "Танд зориулсан зөвлөгөө",
+    saved: "Хадгалагдлаа!",
+    inHistory: "Үүнийг түүхээсээ харж болно.",
+    writeAnother: "Дахин бичих",
+    saveTitle: "Энэ бичлэгийг хадгалах уу?",
+    onlyYou: "Таны бичлэгийг зөвхөн та харна.",
+    save: "Хадгалах",
+    dontSave: "Хадгалахгүй",
+
+    // History
+    historyTitle: "Таны түүх",
+    historyLoading: "Түүхийг ачаалж байна…",
+    noCheckins: "Одоогоор бичлэг алга. Хадгалсан бичлэгүүд энд харагдана.",
+
+    emotions: {
+      joy: "баяр", sadness: "гуниг", anger: "уур", fear: "айдас",
+      surprise: "гайхшрал", disgust: "жигшил", neutral: "энгийн",
+    },
+    topics: {
+      academic: "хичээл", sleep: "нойр", social: "харилцаа",
+      physical: "бие махбод", home: "гэр бүл", other: "бусад",
+    },
   },
 }

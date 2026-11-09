@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { EMOJIS } from "./emojis.js"
 
-export default function Results({result, onDone}) {
+export default function Results({t, result, onDone}) {
     const [chosen, setChosen] = useState(result.emotion.clear ? result.emotion.emotion : null)
     const [saved, setSaved] = useState(false)
 
@@ -34,18 +34,18 @@ export default function Results({result, onDone}) {
             <div className="card">
                 {chosen === null ? (
                     <>
-                        <h2>Which of these fits best?</h2>
+                        <h2>{t.whichFits}</h2>
                         <p className="muted">{support.message}</p>
                         <div className="choices">{result.emotion.top3.map((pair) => 
                             <button key={pair[0]} type="button" className="choice" onClick={() => setChosen(pair[0])}>
-                                {EMOJIS[pair[0]]} {pair[0]}
+                                {EMOJIS[pair[0]]} {t.emotions[pair[0]]}
                             </button>
                         )}</div>
                     </>
                 ) : (
                     <>
                         <div className="big-emoji">{EMOJIS[chosen]}</div>
-                        <h2 className="center">You seem to feel <span className="emotion-name">{chosen}</span></h2>
+                        <h2 className="center">{t.youfeel} <span className="emotion-name">{t.emotions[chosen]}</span></h2>
                         <p>{support.choices[chosen]}</p>
                     </>
                 )}
@@ -53,7 +53,7 @@ export default function Results({result, onDone}) {
 
             {chosen !== null && support.tips.length > 0 && (
                 <div className="card">
-                    <h2>Tips for you</h2>
+                    <h2>{t.tipsTitle}</h2>
                     <ul className="tips">
                         {support.tips.map((tip) => (
                             <li key={tip}>{tip}</li>
@@ -66,16 +66,16 @@ export default function Results({result, onDone}) {
                 <div className="card">
                     {saved ? (
                         <>
-                            <p className="center"><strong>Saved</strong> You can see it in your history.</p>
-                            <button className="big-button" type="button" onClick={onDone}>Write another</button>
+                            <p className="center"><strong>{t.saved}</strong> {t.inHistory}</p>
+                            <button className="big-button" type="button" onClick={onDone}>{t.writeAnother}</button>
                         </>
                     ) : (
                         <>
-                            <h2>Save this check-in?</h2>
-                            <p className="muted small"> Only you can see your check-ins.</p>
+                            <h2>{t.saveTitle}</h2>
+                            <p className="muted small">{t.onlyYou}</p>
                             <div className="row">
-                                <button type="button" onClick={save}>Save</button>
-                                <button className="secondary" onClick={onDone} type="button">Don't save</button>
+                                <button type="button" onClick={save}>{t.save}</button>
+                                <button className="secondary" onClick={onDone} type="button">{t.dontSave}</button>
                             </div>
                         </>
                     )}

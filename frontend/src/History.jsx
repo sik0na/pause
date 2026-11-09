@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {EMOJIS} from "./emojis.js"
 
-export default function History() {
+export default function History( {t}) {
     const [checkins, setCheckins] = useState(null)
 
     useEffect(() => {
@@ -11,13 +11,13 @@ export default function History() {
     }, [])
 
     if (checkins === null) {
-        return <p className="muted center">Loading your history...</p>
+        return <p className="muted center">{t.historyLoading}</p>
     }
 
     return (
     <div className="card">
-      <h2>Your history</h2>
-      {checkins.length === 0 && <p className="muted">No check-ins yet. Your saved check-ins will appear here.</p>}
+      <h2>{t.historyTitle}</h2>
+      {checkins.length === 0 && <p className="muted">{t.noCheckins}</p>}
 
       <ul className="history">
         {checkins.map((checkin) => (
@@ -26,8 +26,8 @@ export default function History() {
             <div>
               <p className="history-text">{checkin.text}</p>
               <p className="muted small">
-                {checkin.created_at} · {checkin.chosen}
-                {checkin.topics.length > 0 && " · " + checkin.topics.join(", ")}
+                {checkin.created_at} · {t.emotions[checkin.chosen]}
+                {checkin.topics.length > 0 && " · " + checkin.topics.map((topic) => t.topics[topic]).join(",")}
               </p>
             </div>
           </li>
