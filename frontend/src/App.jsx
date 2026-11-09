@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import Login from "./Login.jsx"
 import Dashboard from "./Dashboard.jsx"
+import { TEXTS } from "./texts.js" 
 
 export default function App() {
   const [checking, setChecking] = useState(true)
   const [username, setUsername] = useState(null)
+  const  [lang, setLang] = useState(localStorage.getItem("lang") || "en")
+
+  const t = TEXTS[lang]
 
   useEffect(()=> {
     fetch("/api/me")
@@ -21,15 +25,27 @@ export default function App() {
     await fetch("/api/logout", {method: "POST"})
     setUsername(null)
   }
+  function changeLanguage(newLang) {
+    setLang(newLang)
+    localStorage.setItem("lang", newLang)
+  }
   
   if (checking) {
-    return <p className="muted center">Loading...</p>
+    return <p className="muted center">{t.loading}</p>
   }
 
-  if (username === null) {
-    return <Login onLoggedIn={setUsername}></Login>
-  }
+  return (
+    <>
+      <div className="languages">
+        {Object.keys(TEXTS).map((code) => (
+          <button key={code} type="button" className={code === lang ? "language active" : "language"} onClick={()=> changeLanguage(code)}>
+            {TEXTS[code].languageName}
+          </button>
+        ))}
+      </div>
 
-  // Logged in: the dashboard (it shows the greeting and the Log out button itself)
-  return <Dashboard username={username} onLogout={logout} />
+      {username === null ? <Login t={t} onLoggedIn={setUsername}/>
+      : <Dashboard t={t} username = {username} onLogout={logout}/>}
+    </>
+  )
 }

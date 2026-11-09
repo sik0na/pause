@@ -87,7 +87,7 @@ button {
 }
 
 button:hover {
-  background: var(--surface);
+  background: var(--primary-dark);
 
 }
 button.secondary {
@@ -264,4 +264,30 @@ button:disabled {
 
 .history .small {
   margin: 0;
+}
+
+.languages{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.language {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.language:hover {
+  background: var(--surface);
+}
+
+.language.active,
+.language.active:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
 }
