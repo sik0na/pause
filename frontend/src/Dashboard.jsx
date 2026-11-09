@@ -51,7 +51,7 @@ export default function Dashboard({ t, lang, username, onLogout }) {
                     {error && <p className="error">{error}</p>}
 
                     <textarea rows="4" value={text} placeholder={t.placeholder} onChange={(e) => setText(e.target.value)}/>
-                    <p className="muted class">{t.needStart}</p>
+                    <p className="muted small">{t.needStart}</p>
                     <div className="starters">
                         {t.starters.map((starter) => (
                             <button className="starter" key={starter} type="button" onClick={() => setText(starter + "")}>
