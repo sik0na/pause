@@ -33,22 +33,100 @@ SAFETY = {
     },
 }
 
-def build_support(result):
+# ----- Hungarian -----
+HU = {
+    "emotions": {
+        "joy": "Ezt jó hallani! Szánj egy percet arra, hogy észrevedd, mitől volt jó a mai nap.",
+        "sadness": "Sajnálom, hogy rosszul érzed magad. Rendben van, ha szomorú vagy. Légy ma kedves magadhoz.",
+        "anger": "Úgy tűnik, valami nagyon zavart. A düh természetes reakció. Egy rövid séta vagy néhány lassú lélegzet segíthet lecsillapodni.",
+        "fear": "Úgy tűnik, aggódsz. Ez érthető, ha valami fontos neked. Próbálj egy apró dologra koncentrálni, amit ma megtehetsz.",
+        "surprise": "Úgy tűnik, valami váratlan történt. Adj magadnak egy kis időt, hogy feldolgozd.",
+        "disgust": "Úgy tűnik, valami nagyon nem tűnt helyesnek. Rendben van, ha egy időre eltávolodsz tőle.",
+        "neutral": "Köszönöm, hogy megosztottad. Jó szokás figyelni az érzéseidre, még a hétköznapi napokon is.",
+    },
+    "unclear": "Köszönöm, hogy megosztottad. Nem vagyok egészen biztos benne, hogyan érzel. Melyik illik rád leginkább?",
+    "tips": {
+        "academic": "Bontsd kis lépésekre a feladatot, és a legkönnyebbel kezdd. Az egyetemed tanulástámogató szolgálata segíthet a tervezésben.",
+        "sleep": "Próbálj minden este ugyanabban az időben lefeküdni, és lefekvés előtt 30 perccel tedd el a telefonodat.",
+        "social": "Kezdd kicsiben: írj ma egy üzenetet valakinek, vagy próbálj ki egy klubot vagy diákprogramot ezen a héten.",
+        "physical": "Lehet, hogy a tested is érzi a stresszt. Igyál vizet, egyél valamit és pihenj. Ha nem javul, kérlek, fordulj orvoshoz.",
+        "home": "A honvágy nagyon gyakori a nemzetközi hallgatók körében. Egy hívás a családoddal vagy egy ismerős étel elkészítése segíthet.",
+    },
+    "safety": {
+        "crisis": {
+            "title": "Nem kell egyedül végigcsinálnod",
+            "text": "Ha arra gondolsz, hogy bántanád magad, kérlek, kérj segítséget most. Vészhelyzetben hívd a 112-t. "
+                    "Bármikor beszélhetsz valakivel a 116 123-as lelki elsősegély-vonalon, "
+                    "vagy fordulj az egyetemed pszichológiai tanácsadásához.",
+        },
+        "urgent_body": {
+            "title": "Kérlek, kérj orvosi segítséget",
+            "text": "Ezek a tünetek komolyak lehetnek. Ha erősek vagy hirtelen jelentkeztek, hívd most a 112-t. "
+                    "Egyébként kérlek, minél hamarabb fordulj orvoshoz.",
+        },
+    },
+}
+
+# ----- Mongolian -----
+MN = {
+    "emotions": {
+        "joy": "Сонсоход их сайхан байна! Өнөөдрийг юу сайхан болгосныг анзаарч үзээрэй.",
+        "sadness": "Таны сэтгэл гутарсанд харамсаж байна. Гунигтай байх нь зүгээр. Өнөөдөр өөртөө зөөлөн хандаарай.",
+        "anger": "Ямар нэг зүйл таныг их бухимдуулсан бололтой. Уурлах нь хэвийн. Богино алхалт эсвэл хэдэн удаа аажуухан амьсгалах нь тайвшрахад тусална.",
+        "fear": "Та санаа зовж байгаа бололтой. Танд чухал зүйл байхад ингэх нь ойлгомжтой. Өнөөдөр хийж чадах нэг жижиг зүйлдээ анхаараарай.",
+        "surprise": "Гэнэтийн зүйл тохиолдсон бололтой. Үүнийг хүлээж авахад өөртөө хугацаа өгөөрэй.",
+        "disgust": "Ямар нэг зүйл танд огт таалагдаагүй бололтой. Түүнээс хэсэг хугацаанд холдох нь зүгээр.",
+        "neutral": "Хуваалцсанд баярлалаа. Энгийн өдрүүдэд ч мэдрэмжээ анзаарах нь сайн дадал юм.",
+    },
+    "unclear": "Хуваалцсанд баярлалаа. Таны мэдрэмжийг сайн ойлгож чадсангүй. Аль нь хамгийн тохирох вэ?",
+    "tips": {
+        "academic": "Ажлаа жижиг алхмуудад хувааж, хамгийн хялбараас нь эхлээрэй. Их сургуулийн тань суралцахуйн дэмжлэгийн алба төлөвлөхөд тусалж чадна.",
+        "sleep": "Орой бүр нэг цагт унтаж, унтахаасаа 30 минутын өмнө утсаа холдуулж үзээрэй.",
+        "social": "Жижиг зүйлээс эхлээрэй: өнөөдөр нэг хүнд мессеж бичих, эсвэл энэ долоо хоногт нэг клуб, оюутны арга хэмжээнд оролцож үзээрэй.",
+        "physical": "Таны бие ч гэсэн стрессийг мэдэрч байж магадгүй. Ус ууж, хооллож, амраарай. Хэрэв сайжрахгүй бол эмчид хандана уу.",
+        "home": "Гэрээ санах нь гадаад оюутнуудад маш түгээмэл. Гэр бүлтэйгээ ярих эсвэл танил хоол хийх нь тусалж магадгүй.",
+    },
+    "safety": {
+        "crisis": {
+            "title": "Та үүнийг ганцаараа даван туулах шаардлагагүй",
+            "text": "Хэрэв та өөрийгөө гэмтээх тухай бодож байвал яг одоо тусламж хүсээрэй. Яаралтай үед 112 руу залгаарай. "
+                    "116 123 сэтгэл зүйн тусламжийн утсаар хэзээ ч ярилцах боломжтой, "
+                    "эсвэл их сургуулийнхаа сэтгэл зүйн зөвлөгөөний албанд хандаарай.",
+        },
+        "urgent_body": {
+            "title": "Эмнэлгийн тусламж аваарай",
+            "text": "Эдгээр шинж тэмдэг ноцтой байж болзошгүй. Хэрэв хүчтэй эсвэл гэнэт илэрсэн бол яг одоо 112 руу залгаарай. "
+                    "Үгүй бол аль болох хурдан эмчид хандаарай.",
+        },
+    },
+}
+
+# All languages together. English uses the dictionaries above.
+SUPPORT_TEXTS = {
+    "en": {"emotions": EMOTION_MESSAGES, "unclear": UNCLEAR_MESSAGE, "tips": TOPIC_TIPS, "safety": SAFETY},
+    "hu": HU,
+    "mn": MN,
+}
+
+def build_support(result, lang="en"):
+    texts = SUPPORT_TEXTS.get(lang, SUPPORT_TEXTS["en"])
+
     emotion = result["emotion"]
     if emotion["clear"]:
-        message = EMOTION_MESSAGES[emotion["emotion"]]
+        message = texts["emotions"][emotion["emotion"]]
     else:
-        message = UNCLEAR_MESSAGE
+        message = texts["unclear"]
 
     tips = []
     for topic in result["topics"]:
-        tips.append(TOPIC_TIPS[topic])
+        tips.append(texts["tips"][topic])
 
     safety = None
     if result["safety"] is not None:
-        safety = SAFETY[result["safety"]]
+        safety = texts["safety"][result["safety"]]
+    
     choices = {}
     for name, chance in emotion.get("top3", []):
-        choices[name] = EMOTION_MESSAGES[name]
+        choices[name] = texts["emotions"][name]
 
     return {"safety": safety, "message": message, "tips": tips, "choices": choices}

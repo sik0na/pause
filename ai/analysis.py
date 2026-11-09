@@ -25,7 +25,7 @@ def find_topics(text):
             topics.append(name)
     return topics
 
-def analyze(text):
+def analyze(text, lang="en"):
     text = clean_text(text)
     if text == "":
         return {"error": "Please write a few words."}
@@ -36,7 +36,7 @@ def analyze(text):
         "emotion": analyze_emotion(text),    # emotion, confidence, clear, top3
         "topics": find_topics(text),         # ["sleep", "academic"]
     }
-    result["support"] = build_support(result)
+    result["support"] = build_support(result, lang)
     return result
 
 if __name__ == "__main__":

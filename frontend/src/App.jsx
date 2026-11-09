@@ -45,7 +45,7 @@ export default function App() {
       </div>
 
       {username === null ? <Login t={t} onLoggedIn={setUsername}/>
-      : <Dashboard t={t} username = {username} onLogout={logout}/>}
+      : <Dashboard t={t} lang={lang} username = {username} onLogout={logout}/>}
     </>
   )
 }

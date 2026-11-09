@@ -72,8 +72,9 @@ def api_analyze():
     
     data = request.get_json(silent=True) or {}
     text = data.get("text", "")
+    lang = data.get("lang", "en")
 
-    result = analyze(text)
+    result = analyze(text, lang)
     if "error" in result:
         return jsonify(result), 400
     return jsonify(result)

@@ -27,7 +27,7 @@ export default function History( {t}) {
               <p className="history-text">{checkin.text}</p>
               <p className="muted small">
                 {checkin.created_at} · {t.emotions[checkin.chosen]}
-                {checkin.topics.length > 0 && " · " + checkin.topics.map((topic) => t.topics[topic]).join(",")}
+                {checkin.topics.length > 0 && " · " + checkin.topics.map((topic) => t.topics[topic]).join(", ")}
               </p>
             </div>
           </li>

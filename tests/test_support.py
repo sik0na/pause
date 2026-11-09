@@ -1,4 +1,4 @@
-from support import build_support, UNCLEAR_MESSAGE, EMOTION_MESSAGES
+from support import build_support, UNCLEAR_MESSAGE, EMOTION_MESSAGES, TOPIC_TIPS, SAFETY, SUPPORT_TEXTS
 
 
 def fake_result(emotion="fear", clear=True, topics=(), safety=None):
@@ -27,3 +27,19 @@ def test_safety_guidance():
 def test_every_emotion_has_a_message():
     for emotion in ["anger", "disgust", "fear", "joy", "neutral", "sadness", "surprise"]:
         assert emotion in EMOTION_MESSAGES
+
+def test_hungarian_and_mongolian_messages():
+    assert build_support(fake_result("fear"), "hu")["message"] == SUPPORT_TEXTS["hu"]["emotions"]["fear"]
+    assert build_support(fake_result("fear"), "mn")["message"] == SUPPORT_TEXTS["mn"]["emotions"]["fear"]
+
+def test_unknown_language_uses_english():
+    assert build_support(fake_result("fear"), "xx")["message"] == SUPPORT_TEXTS["en"]["emotions"]["fear"]
+
+def test_every_language_has_every_text():
+    for lang in ["hu", "mn"]:
+        texts = SUPPORT_TEXTS[lang]
+        assert texts["emotions"].keys() == EMOTION_MESSAGES.keys()
+        assert texts["tips"].keys() == TOPIC_TIPS.keys()
+        assert texts["safety"].keys() == SAFETY.keys()
+        assert "112" in texts["safety"]["crisis"]["text"]
+        

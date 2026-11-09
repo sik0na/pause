@@ -5,7 +5,7 @@ import Results from "./Results.jsx"
 import History from "./History.jsx"
 
 
-export default function Dashboard({ t, username, onLogout }) {
+export default function Dashboard({ t, lang, username, onLogout }) {
   const [text, setText] = useState("")
   const [result, setResult] = useState(null)       
   const [loading, setLoading] = useState(false)   
@@ -19,7 +19,7 @@ export default function Dashboard({ t, username, onLogout }) {
     const response = await fetch("/api/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, lang }),
     })
     const data = await response.json()
     setLoading(false)

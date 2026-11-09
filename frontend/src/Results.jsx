@@ -45,7 +45,7 @@ export default function Results({t, result, onDone}) {
                 ) : (
                     <>
                         <div className="big-emoji">{EMOJIS[chosen]}</div>
-                        <h2 className="center">{t.youfeel} <span className="emotion-name">{t.emotions[chosen]}</span></h2>
+                        <h2 className="center">{t.youFeel} <span className="emotion-name">{t.emotions[chosen]}</span></h2>
                         <p>{support.choices[chosen]}</p>
                     </>
                 )}
