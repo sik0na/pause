@@ -47,6 +47,7 @@ export const TEXTS = {
       academic: "studies", sleep: "sleep", social: "social life",
       physical: "body", home: "home", other: "other",
     },
+    errors: {},
 
   },
 
@@ -105,6 +106,14 @@ export const TEXTS = {
       academic: "tanulmányok", sleep: "alvás", social: "kapcsolatok",
       physical: "testi tünetek", home: "otthon", other: "egyéb",
     },
+    errors: {
+      "Username must be at least 3 characters.": "A felhasználónévnek legalább 3 karakterből kell állnia.",
+      "Password must be at least 8 characters.": "A jelszónak legalább 8 karakterből kell állnia.",
+      "That username is already taken.": "Ez a felhasználónév már foglalt.",
+      "Wrong username or password.": "Hibás felhasználónév vagy jelszó.",
+      "Please log in.": "Kérlek, jelentkezz be.",
+      "Please write a few words.": "Kérlek, írj néhány szót.",
+    },
 
   },
 
@@ -162,6 +171,15 @@ export const TEXTS = {
     topics: {
       academic: "хичээл", sleep: "нойр", social: "харилцаа",
       physical: "бие махбод", home: "гэр бүл", other: "бусад",
+    },
+    // Backend errors (English) → Mongolian
+    errors: {
+      "Username must be at least 3 characters.": "Хэрэглэгчийн нэр дор хаяж 3 тэмдэгттэй байх ёстой.",
+      "Password must be at least 8 characters.": "Нууц үг дор хаяж 8 тэмдэгттэй байх ёстой.",
+      "That username is already taken.": "Энэ хэрэглэгчийн нэр бүртгэгдсэн байна.",
+      "Wrong username or password.": "Хэрэглэгчийн нэр эсвэл нууц үг буруу байна.",
+      "Please log in.": "Нэвтэрнэ үү.",
+      "Please write a few words.": "Хэдэн үг бичнэ үү.",
     },
   },
 }

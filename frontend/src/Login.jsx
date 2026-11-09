@@ -33,7 +33,7 @@ export default function Login({ t, onLoggedIn }) {
             <form onSubmit={submit} className="card">
                 <h1>{isLogin ? t.welcomeBack : t.createAccount}</h1>
                 <p className="muted">{t.privateNote}</p>
-                {error && <p className="error">{error}</p>}
+                {error && <p className="error">{t.errors[error] || error}</p>}
                 <label htmlFor="username">{t.username}</label>
                 <input id="username" value={username} autoComplete="username" onChange={(e) => setUsername(e.target.value)}/>
                 <label htmlFor="password">{t.password}</label>

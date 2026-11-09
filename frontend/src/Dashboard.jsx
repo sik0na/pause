@@ -48,7 +48,7 @@ export default function Dashboard({ t, lang, username, onLogout }) {
                 <form onSubmit={checkIn} className="card">
                     <h2>{t.mindTitle}</h2>
                     <p className="muted small">{t.writeHint}</p>
-                    {error && <p className="error">{error}</p>}
+                    {error && <p className="error">{t.errors[error] || error}</p>}
 
                     <textarea rows="4" value={text} placeholder={t.placeholder} onChange={(e) => setText(e.target.value)}/>
                     <p className="muted small">{t.needStart}</p>
