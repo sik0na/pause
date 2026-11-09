@@ -48,6 +48,13 @@ export const TEXTS = {
       physical: "body", home: "home", other: "other",
     },
     errors: {},
+        // Mood calendar
+    calendarTitle: "Your mood calendar",
+    previousMonth: "Previous month",
+    nextMonth: "Next month",
+    weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    months: ["January", "February", "March", "April", "May", "June",
+             "July", "August", "September", "October", "November", "December"],
 
   },
 
@@ -114,6 +121,13 @@ export const TEXTS = {
       "Please log in.": "Kérlek, jelentkezz be.",
       "Please write a few words.": "Kérlek, írj néhány szót.",
     },
+        // Mood calendar
+    calendarTitle: "Hangulatnaptár",
+    previousMonth: "Előző hónap",
+    nextMonth: "Következő hónap",
+    weekdays: ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
+    months: ["január", "február", "március", "április", "május", "június",
+             "július", "augusztus", "szeptember", "október", "november", "december"],
 
   },
 
@@ -181,5 +195,13 @@ export const TEXTS = {
       "Please log in.": "Нэвтэрнэ үү.",
       "Please write a few words.": "Хэдэн үг бичнэ үү.",
     },
+        // Mood calendar
+    calendarTitle: "Сэтгэл санааны календарь",
+    previousMonth: "Өмнөх сар",
+    nextMonth: "Дараагийн сар",
+    weekdays: ["Да", "Мя", "Лх", "Пү", "Ба", "Бя", "Ня"],
+    months: ["Нэгдүгээр сар", "Хоёрдугаар сар", "Гуравдугаар сар", "Дөрөвдүгээр сар",
+             "Тавдугаар сар", "Зургаадугаар сар", "Долдугаар сар", "Наймдугаар сар",
+             "Есдүгээр сар", "Аравдугаар сар", "Арван нэгдүгээр сар", "Арван хоёрдугаар сар"],
   },
 }

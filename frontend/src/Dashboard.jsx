@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Results from "./Results.jsx"
 import History from "./History.jsx"
+import MoodCalendar from "./MoodCalendar.jsx"
 
 
 export default function Dashboard({ t, lang, username, onLogout }) {
@@ -64,6 +65,7 @@ export default function Dashboard({ t, lang, username, onLogout }) {
                         {loading ? t.thinking : t.checkIn}
                     </button>
                 </form>
+                <MoodCalendar t={t}/>
                 <History t={t}/>
             </>
         ) : (
