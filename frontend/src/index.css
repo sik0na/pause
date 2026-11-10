@@ -408,3 +408,34 @@ button.secondary:hover {
   color: #ffffff;
 }
 
+.chart{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bar-row{
+  display: grid;
+  grid-template-columns: 120px 1fr 28px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.bar-track{
+  height: 14px;
+  background: var(--surface);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar{
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.bar-count{
+  text-align: right;
+  font-weight: 700;
+}

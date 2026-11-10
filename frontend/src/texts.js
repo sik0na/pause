@@ -57,6 +57,8 @@ export const TEXTS = {
              "July", "August", "September", "October", "November", "December"],
     calendarHint: "Each day shows the colour of your latest mood that day.",
     tabs: { checkin: "Check in", calendar: "Calendar", history: "History" },
+    chartTitle: "Moods of the month",
+    chartEmpty: "No check-ins in this month yet.",
 
   },
 
@@ -132,6 +134,8 @@ export const TEXTS = {
              "július", "augusztus", "szeptember", "október", "november", "december"],
     calendarHint: "Minden nap az aznapi legutóbbi hangulatod színét mutatja.",
     tabs: { checkin: "Új bejegyzés", calendar: "Naptár", history: "Előzmények" },
+    chartTitle: "A hónap hangulatai",
+    chartEmpty: "Ebben a hónapban még nincs bejegyzés.",
 
   },
 
@@ -209,5 +213,7 @@ export const TEXTS = {
              "Есдүгээр сар", "Аравдугаар сар", "Арван нэгдүгээр сар", "Арван хоёрдугаар сар"],
     calendarHint: "Өдөр бүр тухайн өдрийн хамгийн сүүлийн сэтгэл санааны өнгөөр харагдана.",
     tabs: { checkin: "Бичих", calendar: "Календарь", history: "Түүх" },
+    chartTitle: "Сарын сэтгэл санаа",
+    chartEmpty: "Энэ сард одоогоор бичлэг алга.",
   },
 }
