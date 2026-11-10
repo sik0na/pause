@@ -379,3 +379,32 @@ button.secondary:hover {
   height: 12px;
   border-radius: 50%;
 }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  background: none;
+  color: var(--muted);
+  padding: 9px 8px;
+  font-size: 14px;
+}
+
+.tab:hover{
+  background: var(--surface);
+}
+
+.tab.active,
+.tab.active:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
