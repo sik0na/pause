@@ -10,6 +10,17 @@ export default function History( {t}) {
             .then((data) => setCheckins(data.checkins))
     }, [])
 
+    async function deleteCheckin(id) {
+      if (!window.confirm(t.deleteConfirm)) {
+        return
+      }
+
+      const response = await fetch("/api/checkins" + id, {method: "DELETE"})
+      if (response.ok) {
+        setCheckins(checkins.filter((checkin) => checkin.id != id))
+      }
+    }
+
     if (checkins === null) {
         return <p className="muted center">{t.historyLoading}</p>
     }

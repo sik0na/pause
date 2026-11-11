@@ -59,6 +59,8 @@ export const TEXTS = {
     tabs: { checkin: "Check in", calendar: "Calendar", history: "History" },
     chartTitle: "Moods of the month",
     chartEmpty: "No check-ins in this month yet.",
+    delete: "Delete",
+    deleteConfirm: "Delete this check-in? This can't be undone.",
 
   },
 
@@ -136,6 +138,8 @@ export const TEXTS = {
     tabs: { checkin: "Új bejegyzés", calendar: "Naptár", history: "Előzmények" },
     chartTitle: "A hónap hangulatai",
     chartEmpty: "Ebben a hónapban még nincs bejegyzés.",
+    delete: "Törlés",
+    deleteConfirm: "Törlöd ezt a bejegyzést? Ez nem vonható vissza.",
 
   },
 
@@ -215,5 +219,7 @@ export const TEXTS = {
     tabs: { checkin: "Бичих", calendar: "Календарь", history: "Түүх" },
     chartTitle: "Сарын сэтгэл санаа",
     chartEmpty: "Энэ сард одоогоор бичлэг алга.",
+    delete: "Устгах",
+    deleteConfirm: "Энэ бичлэгийг устгах уу? Буцаах боломжгүй.",
   },
 }

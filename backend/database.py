@@ -91,3 +91,13 @@ def get_checkins(user_id):
             "safety": row["safety"],
         })
     return checkins
+
+def delete_checkin(user_id, checkin_id):
+    conn = get_connection()
+    cursor = conn.execute(
+        "DELETE FROM checkins WHERE id = ? AND user_id = ?", (checkin_id, user_id)
+    )
+    conn.commit()
+    deleted = cursor.rowcount == 1
+    conn.close()
+    return deleted

@@ -106,5 +106,13 @@ def api_get_checkins():
         return jsonify({"error": "Please log in."}), 401
     return jsonify({"checkins": database.get_checkins(session["user_id"])})
 
+@app.route("/api/checkins/<int:checkin_id>", methods = ["DELETE"])
+def api_delete_checkin(checkin_id):
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+    if not database.delete_checkin(session["user_id"], checkin_id):
+        return jsonify({"error": "Check-in not found."}), 404
+    return jsonify({"ok": True})
+
 if __name__ == "__main__":
     app.run(debug=True, port=5050)

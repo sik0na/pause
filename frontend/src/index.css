@@ -439,3 +439,19 @@ button.secondary:hover {
   text-align: right;
   font-weight: 700;
 }
+
+.history li > div {
+  flex: 1;
+}
+
+.delete-button {
+  background: none;
+  padding: 4px 8px;
+  font-size: 16px;
+  opacity: 0.4;
+}
+
+.delete-button:hover {
+  background: var(--danger-soft);
+  opacity: 1;
+}

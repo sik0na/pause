@@ -74,3 +74,23 @@ def test_students_only_see_their_own_checkins():
     ben = app.test_client()
     ben.post("/api/signup", json={"username": "ben", "password": "helloworld123"})
     assert ben.get("/api/checkins").get_json()["checkins"] == []
+
+def test_delete_checkin():
+    client = logged_in_client()
+    client.post("/api/checkins", json = CHECKIN)
+    checkin_id = client.get("/api/checkins").get_json()["checkins"][0]["id"]
+
+    assert app.test_client().delete(f"/api/checkins/{checkin_id}").status_code == 401
+    assert client.delete(f"/api/checkins/{checkin_id}").status_code == 200
+    assert client.get("/api/checkins").get_json()["checkins"] == []
+    assert client.delete(f"/api/checkins/{checkin_id}").status_code == 404
+
+def test_cannot_delete_someone_elses_checkin():
+    anna = logged_in_client()
+    anna.post("/api/checkins", json=CHECKIN)
+    checkin_id = anna.get("api/checkins").get_json()["checkins"][0]["id"]
+    ben = app.test_client()
+    ben.post("/api/signup", json={"username": "ben", "password": "sunflower123"})
+    assert ben.delete(f"/api/checkins/{checkin_id}").status_code == 404
+    assert len(anna.get("/api/checkins").get_json()["checkins"]) == 1
+    
