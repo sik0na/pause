@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { EMOJIS } from "./emojis.js"
+import Breathing from "./Breathing.jsx"
+
 
 export default function Results({t, result, onDone}) {
     const [chosen, setChosen] = useState(result.emotion.clear ? result.emotion.emotion : null)
@@ -61,6 +63,8 @@ export default function Results({t, result, onDone}) {
                     </ul>
                 </div>
             )}
+            {["fear", "anger", "sadness"].includes(chosen) && <Breathing t={t} />} 
+
 
             {chosen !== null && (
                 <div className="card">

@@ -455,3 +455,43 @@ button.secondary:hover {
   background: var(--danger-soft);
   opacity: 1;
 }
+
+.breath-area {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breath-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--surface);
+  transform: scale(0.6);
+}
+
+.breath-circle.running {
+  background: var(--primary);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0% {transform: scale(0.6);}
+  50% {transform: scale(1);}
+  100% {transform: scale(0.6);}
+}
+
+.breath-label {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  min-height: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breath-circle.running {
+    animation: none;
+    transform: scale(0.8);
+  }
+}

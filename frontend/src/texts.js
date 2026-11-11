@@ -61,6 +61,12 @@ export const TEXTS = {
     chartEmpty: "No check-ins in this month yet.",
     delete: "Delete",
     deleteConfirm: "Delete this check-in? This can't be undone.",
+    breathTitle: "Take a breath",
+    breathHint: "Follow the circle for one minute. Breathe in as it grows, and out as it shrinks.",
+    breatheIn: "Breathe in…",
+    breatheOut: "Breathe out…",
+    breathStart: "Start",
+    breathStop: "Stop",
 
   },
 
@@ -140,6 +146,12 @@ export const TEXTS = {
     chartEmpty: "Ebben a hónapban még nincs bejegyzés.",
     delete: "Törlés",
     deleteConfirm: "Törlöd ezt a bejegyzést? Ez nem vonható vissza.",
+    breathTitle: "Vegyél egy mély levegőt",
+    breathHint: "Kövesd a kört egy percig. Lélegezz be, amikor nő, és ki, amikor zsugorodik.",
+    breatheIn: "Belégzés…",
+    breatheOut: "Kilégzés…",
+    breathStart: "Indítás",
+    breathStop: "Leállítás",
 
   },
 
@@ -221,5 +233,11 @@ export const TEXTS = {
     chartEmpty: "Энэ сард одоогоор бичлэг алга.",
     delete: "Устгах",
     deleteConfirm: "Энэ бичлэгийг устгах уу? Буцаах боломжгүй.",
+    breathTitle: "Гүнзгий амьсгаа аваарай",
+    breathHint: "Нэг минутын турш дугуйг дагаарай. Томрох үед амьсгаа авч, жижгэрэх үед гаргаарай.",
+    breatheIn: "Амьсгаа ав…",
+    breatheOut: "Амьсгаа гарга…",
+    breathStart: "Эхлэх",
+    breathStop: "Зогсоох",
   },
 }

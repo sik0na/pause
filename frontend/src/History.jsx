@@ -41,6 +41,7 @@ export default function History( {t}) {
                 {checkin.topics.length > 0 && " · " + checkin.topics.map((topic) => t.topics[topic]).join(", ")}
               </p>
             </div>
+            <button className="delete-button" type="button" onClick={() => deleteCheckin(checkin.id)} aria-label={t.delete} title={t.delete}>🗑️</button>
           </li>
         ))}
       </ul>
