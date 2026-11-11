@@ -4,19 +4,24 @@
 }
 
 :root{
-  --bg: #f8f5ff;
+  --bg: #fdf6f4;
   --card: #ffffff;
-  --text: #2b2540;
+  --text: #2e2438;
   --primary: #7c5cff;
 
-  --muted: #6f6886;
-  --border: #e8e2f5;
-  --shadow: 0 6px 20px rgba(80, 56, 170, 0.08);
+  --muted: #6b6177;
+  --border: #f1e6e6;
+  --shadow: 0 6px 20px rgba(46, 36, 56, 0.06);
 
-  --surface: #f3effc;
+  --surface: #f4eef1;
   --primary-dark: #6342ea;
   --danger: #e5484d;
   --danger-soft: #ffe8e8;
+
+  --lavendar: #ece6ff;
+  --peach: #ffe0cc;
+  --pink: #ffe3e6;
+  --mint: #dff3e4;
 }
 
 body{
@@ -494,4 +499,78 @@ button.secondary:hover {
     animation: none;
     transform: scale(0.8);
   }
+}
+
+.card{
+  border-radius: 28px;
+
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+
+textarea {
+  background: var(--card);
+  border: 2px solid var(--primary);
+
+  border-radius: 24px;
+  padding: 18px;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.starter:nth-child(1) {
+  background: var(--lavendar);
+}
+
+.starter:nth-child(2) {
+  background: var(--peach);
+}
+
+.starter:nth-child(3) {
+  background: var(--pink);
+}
+
+.starters:nth-child(4) {
+  background: var(--mint);
+}
+
+.starter {
+  font-size: 14px;
+  padding: 10px 14px;
+}
+
+.starter:hover {
+  filter: brightness(0.95);
+}
+
+.big-button {
+  padding: 17px;
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+}
+
+.day {
+  border-radius: 50%;
+  background: none;
+  font-weight: 600;
+}
+
+.day[class*="mood-"] {
+  font-weight: 800;
+  color: #2e2438;
+}
+
+.legend-item {
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+.bar-track {
+  height: 16px;
 }
