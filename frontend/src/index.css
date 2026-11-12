@@ -595,7 +595,7 @@ main {
   max-width: 480px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .nav-item {
@@ -655,3 +655,121 @@ main {
     background: var(--lavender);
   }
 }
+
+  .today-page h2{
+    margin: 0 0 10px;
+  }
+
+  .week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 12px;
+  }
+
+  .week-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .week-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1.5px dashed #d9cfe0;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .week-circle[class*="mood-"]{
+    border: none;
+  }
+
+  .week-circle.today{
+    border: 2px solid var(--primary);
+  }
+
+  .today-circle {
+    width: 260px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    margin: 36px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #ffffff 0%, #f1ebff 55%, #e4dbff 100%);
+    box-shadow: 0 0 0 14px rgba(255, 122, 138, 0.10), 0 0 0 28px rgba(124, 92, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+
+
+  }
+
+  .today-circle p {
+    margin: 0;
+  }
+
+  .today-circle strong {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .today-mood {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+
+  .for-you{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .for-you-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    min-height: 140px;
+    padding: 14px;
+    border-radius: 22px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .for-you-card.lavender {
+    background: var(--lavender);
+
+  }
+
+  .for-you-card.peach {
+    background: var(--peach);
+  }
+
+  .for-you-card.pink{
+    background: var(--pink);
+  }
+  .for-you-card:hover {
+    filter: brightness(0.97);
+  }
+

@@ -2,8 +2,10 @@ import { useState } from "react"
 import Results from "./Results.jsx"
 import History from "./History.jsx"
 import MoodCalendar from "./MoodCalendar.jsx"
+import Today from "./Today.jsx"
 
 const ICONS = {
+  today: <path d="M3 11l9-7 9 7M5 10v10h14V10" />,
   checkin: <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />,
   calendar: <path d="M3 10h18M8 3v4M16 3v4M6 5h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z" />,
   history: <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />,
@@ -14,7 +16,8 @@ export default function Dashboard({ t, lang, username, onLogout }) {
   const [result, setResult] = useState(null)      
   const [loading, setLoading] = useState(false)    
   const [error, setError] = useState("")
-  const [tab, setTab] = useState("checkin")       
+  const [tab, setTab] = useState("today") 
+       
 
 
   async function checkIn(event) {
@@ -66,6 +69,9 @@ export default function Dashboard({ t, lang, username, onLogout }) {
       </nav>
 
       
+      
+      {tab === "today" && <Today t={t} onGo={setTab} />}
+
       {tab === "checkin" && (
         result === null ? (
           <form className="card" onSubmit={checkIn}>

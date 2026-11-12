@@ -56,7 +56,7 @@ export const TEXTS = {
     months: ["January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December"],
     calendarHint: "Each day shows the colour of your latest mood that day.",
-    tabs: { checkin: "Check in", calendar: "Calendar", history: "History" },
+    
     chartTitle: "Moods of the month",
     chartEmpty: "No check-ins in this month yet.",
     delete: "Delete",
@@ -67,6 +67,20 @@ export const TEXTS = {
     breatheOut: "Breathe out…",
     breathStart: "Start",
     breathStop: "Stop",
+    tabs: { 
+      today: "Today",
+      checkin: "Check in", 
+      calendar: "Calendar", 
+      history: "History" 
+    },
+    todayQuestion: "How are you today?",
+    noCheckinYet: "No check-in yet",
+    checkInAgain: "Check in again",
+    forYou: "For you today",
+    cardBreath: "Breathe for one minute",
+    cardCalendar: "Your moods this month",
+    cardHistory: "Read your past check-ins",
+
 
   },
 
@@ -141,7 +155,7 @@ export const TEXTS = {
     months: ["január", "február", "március", "április", "május", "június",
              "július", "augusztus", "szeptember", "október", "november", "december"],
     calendarHint: "Minden nap az aznapi legutóbbi hangulatod színét mutatja.",
-    tabs: { checkin: "Új bejegyzés", calendar: "Naptár", history: "Előzmények" },
+    
     chartTitle: "A hónap hangulatai",
     chartEmpty: "Ebben a hónapban még nincs bejegyzés.",
     delete: "Törlés",
@@ -152,6 +166,18 @@ export const TEXTS = {
     breatheOut: "Kilégzés…",
     breathStart: "Indítás",
     breathStop: "Leállítás",
+    tabs: { today: "Ma", 
+    checkin: "Új bejegyzés", 
+    calendar: "Naptár", 
+    history: "Előzmények"
+    },
+    todayQuestion: "Hogy vagy ma?",
+    noCheckinYet: "Még nincs mai bejegyzés",
+    checkInAgain: "Új bejegyzés",
+    forYou: "Neked ma",
+    cardBreath: "Lélegezz egy percig",
+    cardCalendar: "A hónap hangulatai",
+    cardHistory: "Korábbi bejegyzéseid",
 
   },
 
@@ -228,7 +254,7 @@ export const TEXTS = {
              "Тавдугаар сар", "Зургаадугаар сар", "Долдугаар сар", "Наймдугаар сар",
              "Есдүгээр сар", "Аравдугаар сар", "Арван нэгдүгээр сар", "Арван хоёрдугаар сар"],
     calendarHint: "Өдөр бүр тухайн өдрийн хамгийн сүүлийн сэтгэл санааны өнгөөр харагдана.",
-    tabs: { checkin: "Бичих", calendar: "Календарь", history: "Түүх" },
+    
     chartTitle: "Сарын сэтгэл санаа",
     chartEmpty: "Энэ сард одоогоор бичлэг алга.",
     delete: "Устгах",
@@ -239,5 +265,13 @@ export const TEXTS = {
     breatheOut: "Амьсгаа гарга…",
     breathStart: "Эхлэх",
     breathStop: "Зогсоох",
+  
+    todayQuestion: "Өнөөдөр ямар байна?",
+    noCheckinYet: "Өнөөдөр бичлэг алга",
+    checkInAgain: "Дахин бичих",
+    forYou: "Танд зориулав",
+    cardBreath: "Нэг минут амьсгалах",
+    cardCalendar: "Энэ сарын сэтгэл санаа",
+    cardHistory: "Өмнөх бичлэгүүд",
   },
 }
