@@ -384,33 +384,6 @@ button.secondary:hover {
   border-radius: 50%;
 }
 
-.tabs {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  margin-bottom: 14px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-
-.tab {
-  flex: 1;
-  background: none;
-  color: var(--muted);
-  padding: 9px 8px;
-  font-size: 14px;
-}
-
-.tab:hover{
-  background: var(--surface);
-}
-
-.tab.active,
-.tab.active:hover {
-  background: var(--primary);
-  color: #ffffff;
-}
 
 .chart{
   display: flex;
@@ -601,4 +574,48 @@ textarea {
 
 .delete-button:hover {
   color: var(--danger);
+}
+
+main {
+  padding-bottom: 110px;
+}
+
+.bottom-nav{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 8px 8px calc(10px + env(safe-area-inset-bottom));
+  z-index: 10;
+}
+
+.bottom-nav-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 4px;
+  border-radius: 16px;
+}
+
+.nav-item:hover {
+  background: var(--surface);
+}
+
+.nav-item.active{
+  color: var(--primary-dark);
+  font-weight: 800;
 }

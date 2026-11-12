@@ -1,8 +1,13 @@
-
 import { useState } from "react"
 import Results from "./Results.jsx"
 import History from "./History.jsx"
 import MoodCalendar from "./MoodCalendar.jsx"
+
+const ICONS = {
+  checkin: <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />,
+  calendar: <path d="M3 10h18M8 3v4M16 3v4M6 5h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z" />,
+  history: <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />,
+}
 
 export default function Dashboard({ t, lang, username, onLogout }) {
   const [text, setText] = useState("")
@@ -43,14 +48,21 @@ export default function Dashboard({ t, lang, username, onLogout }) {
       </div>
 
       
-      <nav className="tabs">
-        {Object.keys(t.tabs).map((name) => (
+      <nav className="bottom-nav">
+        <div className="bottom-nav-inner">
+          {Object.keys(t.tabs).map((name) => (
           <button key={name} type="button"
-                  className={name === tab ? "tab active" : "tab"}
-                  onClick={() => setTab(name)}>
-            {t.tabs[name]}
-          </button>
-        ))}
+                    className={name === tab ? "nav-item active" : "nav-item"}
+                    onClick={() => setTab(name)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" strokeWidth="2"
+                   strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                {ICONS[name]}
+              </svg>
+              {t.tabs[name]}
+           </button>
+          ))}
+        </div>
       </nav>
 
       
