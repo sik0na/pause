@@ -619,3 +619,39 @@ main {
   color: var(--primary-dark);
   font-weight: 800;
 }
+
+@media (min-width: 900px) {
+  body {
+    padding-left: 220px;
+  }
+  main {
+    padding-bottom: 24px;
+  }
+
+  .bottom-nav{
+    top: 0;
+    right: auto;
+    width: 220px;
+    border-top: none;
+    border-right: 1px solid var(--border);
+    padding: 32px 14px;
+  }
+
+  .bottom-nav-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+  }
+
+  .nav-item{
+    flex-direction: row;
+    gap: 12px;
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .nav-item.active{
+    background: var(--lavender);
+  }
+}
