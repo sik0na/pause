@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { EMOJIS } from "./emojis.js"
 import Breathing from "./Breathing.jsx"
 
 
@@ -40,13 +39,14 @@ export default function Results({t, result, onDone}) {
                         <p className="muted">{support.message}</p>
                         <div className="choices">{result.emotion.top3.map((pair) => 
                             <button key={pair[0]} type="button" className="choice" onClick={() => setChosen(pair[0])}>
-                                {EMOJIS[pair[0]]} {t.emotions[pair[0]]}
+                                <span className={"mood-dot mood-" + pair[0]}></span>
+                                {t.emotions[pair[0]]}
                             </button>
                         )}</div>
                     </>
                 ) : (
                     <>
-                        <div className="big-emoji">{EMOJIS[chosen]}</div>
+                        <div className={"mood-circle mood-" + chosen}></div>
                         <h2 className="center">{t.youFeel} <span className="emotion-name">{t.emotions[chosen]}</span></h2>
                         <p>{support.choices[chosen]}</p>
                     </>

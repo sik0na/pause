@@ -1,8 +1,9 @@
-import { EMOJIS } from "./emojis.js"
+import { EMOTIONS } from "./emotions"
+
 
 export default function MoodChart({t, checkins}) {
     const counts = {}
-    for (const name of Object.keys(EMOJIS)) {
+    for (const name of EMOTIONS) {
         counts[name] = 0
     }
     for (const checkin of checkins) {
@@ -21,16 +22,19 @@ export default function MoodChart({t, checkins}) {
             ) : (
                 <div className="chart">
                     {names.map((name) => (
-                        <div className="bar-row" key={name}>
-                            <span>{EMOJIS[name]} {t.emotions[name]}</span>
-                            <div className="bar-track">
-                                <div className={"bar mood-" + name} style={{width: (counts[name] / biggest) * 100 + "%"
-                                }}></div>
-                            </div>
-                            <span className="bar-count">{counts[name]}</span>
-                        </div>
-                    ))}
+                    <div key={name} className="bar-row">
+                        <span className="bar-label">
+                            <span className={"mood-dot mood-" + name}></span>
+                            {t.emotions[name]}
+                            </span>
+                    <div className="bar-track">
+                    <div className={"bar mood-" + name}
+                        style={{ width: (counts[name] / biggest) * 100 + "%" }}></div>
+                    </div>
+                    <span className="bar-count">{counts[name]}</span>
                 </div>
+            ))}
+            </div>
             )}
         </div>
     )

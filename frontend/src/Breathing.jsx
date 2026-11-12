@@ -25,7 +25,7 @@ export default function Breathing({t}) {
             </div>
 
             <p className="breath-label">
-                {running ? (breathingIn ? t.breatheIn : t.breatheOut) : "🫁"}
+                {running ? (breathingIn ? t.breatheIn : t.breatheOut) : ""}
             </p>
             <button type="button" onClick={() => setRunning(!running)}>
                 {running ? t.breathStop : t.breathStart}

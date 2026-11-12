@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { EMOJIS } from "./emojis.js"
+import { EMOTIONS } from "./emotions.js"
 import MoodChart from "./MoodChart.jsx"
 
 export default function MoodCalendar({ t }) {
@@ -113,7 +113,7 @@ export default function MoodCalendar({ t }) {
 
         <p className="muted small">{t.calendarHint}</p>
         <div className="legend">
-          {Object.keys(EMOJIS).map((name) => (
+          {EMOTIONS.map((name) => (
             <span key={name} className="legend-item">
               <span className={"legend-dot mood-" + name}></span>
               {t.emotions[name]}
