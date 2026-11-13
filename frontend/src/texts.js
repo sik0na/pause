@@ -279,5 +279,6 @@ export const TEXTS = {
     cardHistory: "Өмнөх бичлэгүүд",
     darkMode: "Харанхуй",
     lightMode: "Гэрэлтэй",
+    tabs: { today: "Өнөөдөр", checkin: "Бичих", calendar: "Календарь", history: "Түүх" },
   },
 }
