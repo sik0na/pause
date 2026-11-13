@@ -24,6 +24,25 @@
   --mint: #dff3e4;
 }
 
+:root[data-theme="dark"] {
+  --bg: #1a1520;
+  --card: #251e2d;
+  --text: #f3eef7;
+  --muted: #b3a8bf;
+  --border: #3a3044;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --surface: #2f2738;
+  --danger: #ff6b6f;
+  --danger-soft: #3d1f24;
+
+  --lavender: #2f2750;
+  --peach: #3d2a22;
+  --pink: #3d2229;
+  --mint: #1f3328;
+
+  color-scheme: dark;
+}
+
 body{
   margin: 0;
   background: var(--bg);
@@ -873,3 +892,40 @@ main {
   .save-buttons .save-main {
     flex: 2;
   }
+
+
+:root[data-theme="dark"] .today-circle {
+  background: radial-gradient(circle at 50% 35%, #3a3058 0%, #2a2240 60%, #221b33 100%);
+}
+
+:root[data-theme="dark"] .week-circle {
+  border-color: #4a3f55;
+}
+
+:root[data-theme="dark"] .day[class*="mood-"],
+:root[data-theme="dark"] .week-circle[class*="mood-"] {
+  color: #2e2438;
+}
+
+:root[data-theme="dark"] .result-label {
+  color: #cfc4ff;
+}
+
+:root[data-theme="dark"] .result-emotion,
+:root[data-theme="dark"] .nav-item.active,
+:root[data-theme="dark"] .tip-color-1 {
+  color: #b7a6ff;
+}
+
+:root[data-theme="dark"] .tip-color-0 { color: #ffb48a; }
+:root[data-theme="dark"] .tip-color-2 { color: #8fd6a5; }
+
+:root[data-theme="dark"] .for-you-card.lavender svg { stroke: #b7a6ff; }
+:root[data-theme="dark"] .for-you-card.peach svg    { stroke: #ffb48a; }
+:root[data-theme="dark"] .for-you-card.pink svg     { stroke: #ff9fb0; }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

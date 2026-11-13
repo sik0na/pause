@@ -80,6 +80,8 @@ export const TEXTS = {
     cardBreath: "Breathe for one minute",
     cardCalendar: "Your moods this month",
     cardHistory: "Read your past check-ins",
+    darkMode: "Dark",
+    lightMode: "Light",
 
 
   },
@@ -178,6 +180,8 @@ export const TEXTS = {
     cardBreath: "Lélegezz egy percig",
     cardCalendar: "A hónap hangulatai",
     cardHistory: "Korábbi bejegyzéseid",
+    darkMode: "Sötét",
+    lightMode: "Világos",
 
   },
 
@@ -273,5 +277,7 @@ export const TEXTS = {
     cardBreath: "Нэг минут амьсгалах",
     cardCalendar: "Энэ сарын сэтгэл санаа",
     cardHistory: "Өмнөх бичлэгүүд",
+    darkMode: "Харанхуй",
+    lightMode: "Гэрэлтэй",
   },
 }
