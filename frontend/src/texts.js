@@ -82,7 +82,13 @@ export const TEXTS = {
     cardHistory: "Read your past check-ins",
     darkMode: "Dark",
     lightMode: "Light",
-
+    settings: "Settings",
+    viewProfile: "View profile",
+    languageTitle: "Language",
+    totalCheckins: "Check-ins",
+    daysCheckedIn: "Days with a check-in",
+    mostCommonMood: "Most common mood",
+    firstCheckin: "First check-in",
 
   },
 
@@ -182,6 +188,13 @@ export const TEXTS = {
     cardHistory: "Korábbi bejegyzéseid",
     darkMode: "Sötét",
     lightMode: "Világos",
+    settings: "Beállítások",
+    viewProfile: "Profil megtekintése",
+    languageTitle: "Nyelv",
+    totalCheckins: "Bejegyzések",
+    daysCheckedIn: "Napok bejegyzéssel",
+    mostCommonMood: "Leggyakoribb hangulat",
+    firstCheckin: "Első bejegyzés",
 
   },
 
@@ -280,5 +293,12 @@ export const TEXTS = {
     darkMode: "Харанхуй",
     lightMode: "Гэрэлтэй",
     tabs: { today: "Өнөөдөр", checkin: "Бичих", calendar: "Календарь", history: "Түүх" },
+    settings: "Тохиргоо",
+    viewProfile: "Профайл харах",
+    languageTitle: "Хэл",
+    totalCheckins: "Бичлэгүүд",
+    daysCheckedIn: "Бичсэн өдрүүд",
+    mostCommonMood: "Хамгийн түгээмэл сэтгэл санаа",
+    firstCheckin: "Анхны бичлэг",
   },
 }

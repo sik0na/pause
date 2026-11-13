@@ -3,6 +3,7 @@ import Results from "./Results.jsx"
 import History from "./History.jsx"
 import MoodCalendar from "./MoodCalendar.jsx"
 import Today from "./Today.jsx"
+import Profile from "./Profile.jsx"
 
 const ICONS = {
   today: <path d="M3 11l9-7 9 7M5 10v10h14V10" />,
@@ -11,12 +12,12 @@ const ICONS = {
   history: <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />,
 }
 
-export default function Dashboard({ t, lang, username, onLogout }) {
+export default function Dashboard({ t, lang, username, tab, setTab }) {
   const [text, setText] = useState("")
   const [result, setResult] = useState(null)      
   const [loading, setLoading] = useState(false)    
   const [error, setError] = useState("")
-  const [tab, setTab] = useState("today") 
+
        
 
 
@@ -46,11 +47,8 @@ export default function Dashboard({ t, lang, username, onLogout }) {
   return (
     <main>
       <div className="hello">
-        <h1>{t.hello}, {username}</h1>
-        <button type="button" className="link-button small" onClick={onLogout}>{t.logOut}</button>
+      <h1>{t.hello}, {username}</h1>
       </div>
-
-      
       <nav className="bottom-nav">
         <div className="bottom-nav-inner">
           {Object.keys(t.tabs).map((name) => (
@@ -104,6 +102,7 @@ export default function Dashboard({ t, lang, username, onLogout }) {
      
       {tab === "calendar" && <MoodCalendar t={t} />}
       {tab === "history" && <History t={t} />}
+      {tab === "profile" && <Profile t={t} username = {username}/>}
     </main>
   )
 }
