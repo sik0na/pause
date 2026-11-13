@@ -191,17 +191,6 @@ button:disabled {
   border: 2px solid var(--danger);
 }
 
-.mood-circle {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-  box-shadow: 0 0 0 10px var(--surface);
-}
-
-.emotion-name{
-  color: var(--primary);
-}
 
 .choices{
   display: flex;
@@ -217,16 +206,6 @@ button:disabled {
 
 .choice:hover {
   background: var(--surface);
-}
-
-.tips{
-  margin: 0;
-  padding-left: 20px;
-}
-
-.tips li {
-  margin-bottom: 8px;
-
 }
 
 .row{
@@ -773,3 +752,124 @@ main {
     filter: brightness(0.97);
   }
 
+  .result-header{
+    background: var(--lavender);
+    border-radius: 32px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .result-header p {
+    margin: 0;
+    line-height: 1.45;
+
+  }
+
+  .result-circle {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    box-shadow: 0 0 0 10px rgba(255,255, 255, 0.6);
+  }
+
+  .result-label {
+    font-weight: 700;
+    color: #4a3f6b;
+  }
+  .result-emotion {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--primary-dark);
+  }
+
+  .topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
+
+  }
+
+  .topic-chip {
+    background: var(--card);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .section-title {
+    margin: 22px 0 10px;
+  }
+
+  .tip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tip-card {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+  }
+
+  .tip-card p {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .tip-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tip-color-0 {
+    background: var(--peach);
+    color: #a8461a;
+
+  }
+
+  .tip-color-1 {
+    background: var(--lavender);
+    color: var(--primary-dark);
+  }
+
+  .tip-color-2{
+    background: var(--mint);
+    color: #2f7a46;
+  }
+
+  .save-card {
+    margin-top: 14px;
+  }
+
+  .save-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .save-buttons button {
+    flex: 1;
+    padding: 15px;
+  }
+
+  .save-buttons .save-main {
+    flex: 2;
+  }
