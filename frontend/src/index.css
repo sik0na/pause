@@ -1252,3 +1252,11 @@ main {
 .end-chat {
   align-self: center;
 }
+
+.chat-end {
+  scroll-margin-bottom: 100px;
+}
+
+.history-text {
+  white-space: pre-line;
+}

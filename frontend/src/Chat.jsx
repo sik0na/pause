@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
 import Breathing from "./Breathing.jsx"
-import { EMOTIONS } from "./emotions.js";
+import { EMOTIONS } from "./emotions.js"
 
 const CALM_DOWN = ["fear", "anger", "sadness"]
 const GOOD = ["joy", "surprise", "neutral"]
 
-function Message({t, message}) {
+function Message({ t, message }) {
     if (message.kind === "breathing") {
-        return <Breathing t={t}/>
-
+        return <Breathing t={t} />
     }
+
     if (message.kind === "safety") {
         return (
             <div className="bubble bot safety-bubble">
@@ -32,8 +32,9 @@ function Message({t, message}) {
     }
 
     if (message.kind === "tip") {
-        return <div className="bubble bot tip-bubble">{message.text}</div>
+        return <div className="bubble bot tip-bubble">💡 {message.text}</div>
     }
+
     return <div className={"bubble " + message.from}>{message.text}</div>
 }
 
@@ -48,10 +49,9 @@ export default function Chat({ t, lang }) {
     const [chosen, setChosen] = useState(null)
     const endRef = useRef(null)
 
-
     useEffect(() => {
-        endRef.current.scrollIntoView({ behavior: "smooth", block: "end"})
-    }, [messages, loading])
+        endRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
+    }, [messages, loading, step])
 
     function add(...newMessages) {
         setMessages((old) => [...old, ...newMessages])
@@ -63,69 +63,69 @@ export default function Chat({ t, lang }) {
 
     async function send(event) {
         event.preventDefault()
-        if (text.trim() === "" ||loading) {
+        if (text.trim() === "" || loading) {
             return
         }
 
-        add({ from: "user", text: text})
+        add({ from: "user", text: text })
         setText("")
         setOfferBreath(false)
         setLoading(true)
 
         const response = await fetch("/api/analyze", {
             method: "POST",
-            headers: {"COntent-Type": "application/json"},
-            body: JSON.stringify({ text, lang}),
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text, lang }),
         })
         const data = await response.json()
         setLoading(false)
 
-        if(!response.ok) {
-            add({ from: "bot", text: t.errors[data.error] || data.error})
+        if (!response.ok) {
+            add({ from: "bot", text: t.errors[data.error] || data.error })
             return
         }
+
         reply(data)
         setResults([...results, data])
     }
 
     function reply(data) {
         const emotion = data.emotion.emotion
-
-        if(data.support.safety) {
-            add ({ from: "bot", kind: "safety", title: data.support.safety.title, text: data.support.safety.text})
+        
+        if (data.support.safety) {
+            add({ from: "bot", kind: "safety", title: data.support.safety.title, text: data.support.safety.text })
         }
         const words = data.text.split(" ").length
-        if (!data.emotion.clear && words < 3) {
+        if (words < 3 && (!data.emotion.clear || emotion === "neutral")) {
             add({ from: "bot", text: t.tellMore })
             return
         }
 
-        const oldEmotions = results.filter((r) => r.emotion.clear).map((r => r.emotion.emotion))
+        
+        const oldEmotions = results.filter((r) => r.emotion.clear).map((r) => r.emotion.emotion)
         if (data.emotion.clear && !oldEmotions.includes(emotion)) {
-            add({ from: "bot", kind: "emotion", emotion: emotion, text: data.support.choices[emotion]})
-
+            add({ from: "bot", kind: "emotion", emotion: emotion, text: data.support.choices[emotion] })
         } else {
-            add({ from: "bot", text: pick(t.acks)})
+            add({ from: "bot", text: pick(t.acks) })
         }
+
+       
         const oldTopics = results.flatMap((r) => r.topics)
         data.topics.forEach((topic, index) => {
             if (!oldTopics.includes(topic)) {
-                add ({ from: "bot", kind: "tip", text: data.support.tips[index]})
+                add({ from: "bot", kind: "tip", text: data.support.tips[index] })
             }
         })
 
-        if (data.emotion.clear && CALM_DOWN.includes(emotion) && ! breathOffered) {
-            add ({ from: "bot", text: t.askBreath })
+        
+        if (data.emotion.clear && CALM_DOWN.includes(emotion) && !breathOffered) {
+            add({ from: "bot", text: t.askBreath })
             setOfferBreath(true)
             setBreathOffered(true)
-
+        } else if (GOOD.includes(emotion)) {
+            add({ from: "bot", text: pick(t.followUps.good) })
         } else {
-            if (GOOD.includes(emotion)) {
-                add({from: "bot", text: pick(t.followUps.good )})
-
-            } else {
-                add({ from: "bot", text: pick(t.followUps.hard )})
-            }
+            add({ from: "bot", text: pick(t.followUps.hard) })
         }
     }
 
@@ -147,7 +147,7 @@ export default function Chat({ t, lang }) {
 
     function chooseMood(emotion) {
         setChosen(emotion)
-        add({ from: "user", text: t.emotions[emotion]}, {from: "bot", text: t.askSave })
+        add({ from: "user", text: t.emotions[emotion] }, { from: "bot", text: t.askSave })
         setStep("save")
     }
 
@@ -168,7 +168,7 @@ export default function Chat({ t, lang }) {
             })
             add({ from: "bot", text: t.saved + " " + t.inHistory })
         } else {
-            add({from: "user", text: t.dontSave }, { from: "bot", text: t.notSaved })
+            add({ from: "user", text: t.dontSave }, { from: "bot", text: t.notSaved })
         }
         setStep("done")
     }
@@ -187,7 +187,7 @@ export default function Chat({ t, lang }) {
             <div className="chat-messages">
                 <div className="bubble bot">{t.chatHello}</div>
                 {messages.map((message, index) => (
-                    <Message key={index} t={t} message={message}/>
+                    <Message key={index} t={t} message={message} />
                 ))}
                 {loading && (
                     <div className="bubble bot typing" aria-label={t.thinking}>
@@ -196,8 +196,8 @@ export default function Chat({ t, lang }) {
                         <span></span>
                     </div>
                 )}
-                <div ref={endRef}></div>
             </div>
+
             {step === "chat" && (
                 <>
                     {offerBreath && (
@@ -210,22 +210,26 @@ export default function Chat({ t, lang }) {
                     {messages.length === 0 && (
                         <div className="starters">
                             {t.starters.map((starter) => (
-                                <button key={starter} type="button" className="starter" onClick={() => setText(starter + " ")}>
-                                    {starter}...
+                                <button key={starter} type="button" className="starter"
+                                        onClick={() => setText(starter + " ")}>
+                                    {starter}…
                                 </button>
                             ))}
                         </div>
-
                     )}
 
                     <form onSubmit={send} className="chat-input">
-                        <textarea rows="1" value={text} placeholder={t.placeholder} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => {
-                            if (e.key === "Enter" && !e.shiftKey) {
-                                send(e)
-                            }
-                        }}/>
+                        <textarea rows="1" value={text} placeholder={t.placeholder}
+                                  onChange={(e) => setText(e.target.value)}
+                                  onKeyDown={(e) => {
+                                      if (e.key === "Enter" && !e.shiftKey) {
+                                          send(e)
+                                      }
+                                  }} />
                         <button type="submit" aria-label={t.send} disabled={loading}>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" strokeWidth="2"
+                                 strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                             </svg>
                         </button>
@@ -241,13 +245,13 @@ export default function Chat({ t, lang }) {
 
             {step === "mood" && (
                 <div className="quick-replies">
-                    {EMOTIONS.map((name) => 
+                    {EMOTIONS.map((name) => (
                         <button key={name} type="button" className="choice" onClick={() => chooseMood(name)}>
                             <span className={"mood-dot mood-" + name}></span>
                             {t.emotions[name]}
-                        </button>)}
+                        </button>
+                    ))}
                 </div>
-
             )}
 
             {step === "save" && (
@@ -256,13 +260,12 @@ export default function Chat({ t, lang }) {
                     <button type="button" onClick={() => saveAnswer(true)}>{t.save}</button>
                 </div>
             )}
-    
 
             {step === "done" && (
                 <button type="button" className="big-button" onClick={newChat}>{t.newChat}</button>
             )}
+
+            <div ref={endRef} className="chat-end"></div>
         </div>
     )
-    
-
 }
