@@ -74,8 +74,16 @@ export const TEXTS = {
       calendar: "Calendar",
       history: "History"
     },
+      timerModes: {
+      focus: "Focus",
+      short: "Short break",
+      long: "Long break"
+    },
     focusTitle: "Focus space",
     focusSoon: "Your pixel focus room is coming here.",
+    timerStart: "Start",
+    timerPause: "Pause",
+    timerReset: "Reset",
     todayQuestion: "How are you today?",
     noCheckinYet: "No check-in yet",
     checkInAgain: "Check in again",

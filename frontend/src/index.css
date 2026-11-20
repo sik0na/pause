@@ -1282,3 +1282,61 @@ main {
   opacity: 1;
   font-weight: 700;
 }
+
+.timer-digits {
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  margin: 16px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.timer_modes {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timer-mode {
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font-size: 13px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.timer-mode.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.timer-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.timer-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.4;
+} 
+
+
+.timer-dot.done {
+  background: currentColor;
+  opacity: 1;
+}
