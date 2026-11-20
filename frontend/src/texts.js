@@ -67,12 +67,15 @@ export const TEXTS = {
     breatheOut: "Breathe out…",
     breathStart: "Start",
     breathStop: "Stop",
-    tabs: { 
+    tabs: {
       today: "Today",
-      checkin: "Check in", 
-      calendar: "Calendar", 
-      history: "History" 
+      focus: "Focus",
+      checkin: "Check in",
+      calendar: "Calendar",
+      history: "History"
     },
+    focusTitle: "Focus space",
+    focusSoon: "Your pixel focus room is coming here.",
     todayQuestion: "How are you today?",
     noCheckinYet: "No check-in yet",
     checkInAgain: "Check in again",

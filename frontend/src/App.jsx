@@ -7,7 +7,7 @@ import { TEXTS } from "./texts.js"
 export default function App() {
   const [checking, setChecking] = useState(true)
   const [username, setUsername] = useState(null)
-  const [lang, setLang] = useState(localStorage.getItem("lang") || "en")
+  const lang = "en"
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
@@ -26,6 +26,7 @@ export default function App() {
         setChecking(false)
       })
   }, [])
+  
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -42,11 +43,6 @@ export default function App() {
     setTab("today")
   }
 
-  function changeLanguage(newLang) {
-    setLang(newLang)
-    localStorage.setItem("lang", newLang)
-  }
-
   function toggleTheme() {
     setTheme(theme === "dark" ? "light" : "dark")
   }
@@ -58,7 +54,7 @@ export default function App() {
   return (
     <>
       <header className="topbar">
-        <Settings t={t} lang={lang} onLanguage={changeLanguage}
+        <Settings t={t} 
                   theme={theme} onTheme={toggleTheme}
                   loggedIn={username !== null}
                   onProfile={() => setTab("profile")}

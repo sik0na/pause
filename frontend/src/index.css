@@ -1260,3 +1260,25 @@ main {
 .history-text {
   white-space: pre-line;
 }
+.chat-lang {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.chat-lang-btn {
+  padding: 4px 10px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font-size: 12px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.chat-lang-btn.active {
+  opacity: 1;
+  font-weight: 700;
+}

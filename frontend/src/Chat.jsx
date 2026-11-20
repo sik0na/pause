@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import Breathing from "./Breathing.jsx"
 import { EMOTIONS } from "./emotions.js"
+import { TEXTS } from "./texts.js"
 
 const CALM_DOWN = ["fear", "anger", "sadness"]
 const GOOD = ["joy", "surprise", "neutral"]
@@ -38,7 +39,14 @@ function Message({ t, message }) {
     return <div className={"bubble " + message.from}>{message.text}</div>
 }
 
-export default function Chat({ t, lang }) {
+export default function Chat() {
+    const [lang, setLang] = useState(localStorage.getItem("chatLang") || "en")
+    const t = TEXTS[lang]
+    function changeLang(code) {
+        setLang(code)
+        localStorage.setItem("chatLang", code)
+    }
+
     const [messages, setMessages] = useState([])
     const [results, setResults] = useState([])
     const [text, setText] = useState("")
@@ -52,6 +60,7 @@ export default function Chat({ t, lang }) {
     useEffect(() => {
         endRef.current.scrollIntoView({ behavior: "smooth", block: "end" })
     }, [messages, loading, step])
+
 
     function add(...newMessages) {
         setMessages((old) => [...old, ...newMessages])
@@ -184,6 +193,14 @@ export default function Chat({ t, lang }) {
 
     return (
         <div className="chat">
+            <div className="chat-lang">
+                {["en", "hu", "mn"].map((code) => (
+                    <button key={code} type="button" className={code === lang ? "chat-lang-btn active" : "chat-lang-btn"}
+                        onClick={() => changeLang(code)}>
+                            {code.toUpperCase()}
+                        </button>
+                ))}
+            </div>
             <div className="chat-messages">
                 <div className="bubble bot">{t.chatHello}</div>
                 {messages.map((message, index) => (
