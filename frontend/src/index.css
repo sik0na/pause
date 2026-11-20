@@ -1297,7 +1297,7 @@ main {
   justify-content: center;
 }
 
-.timer_modes {
+.timer-modes {
   display: flex;
   gap: 6px;
   justify-content: center;
