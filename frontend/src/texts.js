@@ -79,6 +79,11 @@ export const TEXTS = {
       short: "Short break",
       long: "Long break"
     },
+      sceneNames: {
+      room: "Cozy room",
+      lake: "Forest lake",
+      city: "City rooftop"
+    },
     focusTitle: "Focus space",
     focusSoon: "Your pixel focus room is coming here.",
     timerStart: "Start",

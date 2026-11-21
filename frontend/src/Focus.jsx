@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react"
+import Scene from "./Scene.jsx"
+
+const SCENES = ["room", "lake", "city"]
 
 const MODES = {
   focus: 25 * 60,
@@ -34,7 +37,9 @@ export default function Focus({ t }) {
   const [secondsLeft, setSecondsLeft] = useState(MODES.focus)
   const [endTime, setEndTime] = useState(null)
   const [rounds, setRounds] = useState(0)
+  const [scene, setScene] = useState("room")
 
+  const progress = mode === "focus" ? 1 - secondsLeft / MODES.focus : 1
   const running = endTime !== null
 
   useEffect(() => {
@@ -81,6 +86,18 @@ export default function Focus({ t }) {
   return (
     <section className="card focus">
       <h2>{t.focusTitle}</h2>
+
+      <Scene name={scene} progress={progress} />
+
+      <div className="timer-modes">
+        {SCENES.map((name) => (
+          <button key={name} type="button"
+                  className={name === scene ? "timer-mode active" : "timer-mode"}
+                  onClick={() => setScene(name)}>
+            {t.sceneNames[name]}
+          </button>
+        ))}
+      </div>
 
       <div className="timer-modes">
         {Object.keys(MODES).map((name) => (
