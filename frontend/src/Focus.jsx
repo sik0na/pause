@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Scene from "./Scene.jsx"
+import Sounds from "./Sounds.jsx"
 
 const SCENES = ["room", "lake", "city"]
 const WEATHERS = ["clear", "rain", "snow"]
@@ -90,7 +91,7 @@ export default function Focus({ t }) {
 
       <Scene name={scene} progress={progress} weather={weather} />
 
-      <div className="timer-modes">
+        <div className="timer-modes">
         {SCENES.map((name) => (
           <button key={name} type="button"
                   className={name === scene ? "timer-mode active" : "timer-mode"}
@@ -100,7 +101,7 @@ export default function Focus({ t }) {
         ))}
       </div>
 
-      <div className="timer-modes">
+        <div className="timer-modes">
         {Object.keys(MODES).map((name) => (
           <button key={name} type="button"
                   className={name === mode ? "timer-mode active" : "timer-mode"}
@@ -133,6 +134,7 @@ export default function Focus({ t }) {
           </button>
         ))}
       </div>
+      <Sounds t= {t}/> 
     </section>
   )
 }

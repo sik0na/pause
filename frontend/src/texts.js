@@ -89,6 +89,11 @@ export const TEXTS = {
       rain: "Rain",
       snow: "Snow"
     },
+      soundNames: {
+      rain: "Rain",
+      wind: "Wind",
+      fire: "Fireplace"
+    },
     focusTitle: "Focus space",
     focusSoon: "Your pixel focus room is coming here.",
     timerStart: "Start",

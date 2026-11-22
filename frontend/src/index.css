@@ -1367,3 +1367,24 @@ main {
   image-rendering: pixelated;
   pointer-events: none;
 }
+
+.sounds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.sound {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sound span {
+  width: 90px;
+}
+
+.sound input {
+  flex: 1;
+}
