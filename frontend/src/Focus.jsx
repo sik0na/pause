@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Scene from "./Scene.jsx"
 
 const SCENES = ["room", "lake", "city"]
-
+const WEATHERS = ["clear", "rain", "snow"]
 const MODES = {
   focus: 25 * 60,
   short: 5 * 60,
@@ -38,6 +38,7 @@ export default function Focus({ t }) {
   const [endTime, setEndTime] = useState(null)
   const [rounds, setRounds] = useState(0)
   const [scene, setScene] = useState("room")
+  const [weather, setWeather] = useState("clear")
 
   const progress = mode === "focus" ? 1 - secondsLeft / MODES.focus : 1
   const running = endTime !== null
@@ -87,7 +88,7 @@ export default function Focus({ t }) {
     <section className="card focus">
       <h2>{t.focusTitle}</h2>
 
-      <Scene name={scene} progress={progress} />
+      <Scene name={scene} progress={progress} weather={weather} />
 
       <div className="timer-modes">
         {SCENES.map((name) => (
@@ -121,6 +122,15 @@ export default function Focus({ t }) {
       <div className="timer-dots">
         {[0, 1, 2, 3].map((i) => (
           <span key={i} className={i < rounds % 4 ? "timer-dot done" : "timer-dot"}></span>
+        ))}
+      </div>
+
+      <div className="timer-modes">
+        {WEATHERS.map((name) => (
+          <button key={name} type="button" className={name === weather ? "timer-mode active" : "timer-mode"}
+          onClick={() => setWeather(name)}>
+            {t.weatherNames[name]}
+          </button>
         ))}
       </div>
     </section>

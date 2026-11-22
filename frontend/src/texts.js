@@ -84,6 +84,11 @@ export const TEXTS = {
       lake: "Forest lake",
       city: "City rooftop"
     },
+      weatherNames: {
+      clear: "Clear",
+      rain: "Rain",
+      snow: "Snow"
+    },
     focusTitle: "Focus space",
     focusSoon: "Your pixel focus room is coming here.",
     timerStart: "Start",
