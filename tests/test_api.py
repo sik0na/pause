@@ -93,4 +93,25 @@ def test_cannot_delete_someone_elses_checkin():
     ben.post("/api/signup", json={"username": "ben", "password": "sunflower123"})
     assert ben.delete(f"/api/checkins/{checkin_id}").status_code == 404
     assert len(anna.get("/api/checkins").get_json()["checkins"]) == 1
-    
+
+def test_tasks_add_done_delete():
+    client = logged_in_client()
+    response = client.post("/api/tasks", json={"text": "Read chapter 3"})
+    assert response.status_code == 200
+    task_id = response.get_json()["id"]
+    assert client.patch(f"/api/tasks/{task_id}", json = {"done": True}).status_code == 200
+    tasks = client.get("/api/tasks").get_json()["tasks"]
+    assert tasks[0]["done"] is True
+
+    assert client.delete(f"/api/tasks/{task_id}").status_code == 200
+    assert client.get("/api/tasks").get_json()["tasks"] == []
+
+def test_tasks_are_private():
+    anna = logged_in_client()
+    task_id = anna.post("/api/tasks", json = {"text": "Secret plan"}).get_json()["id"]
+
+    bob = app.test_client()
+    bob.post("/api/signup", json={"username": "bob", "password": "bluebird123"})
+
+    assert bob.get("/api/tasks").get_json()["tasks"] == []
+    assert bob.delete(f"/api/tasks/{task_id}").status_code == 404

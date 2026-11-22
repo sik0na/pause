@@ -30,6 +30,15 @@ def create_tables():
             safety TEXT
         )
     """)
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        text TEXT NOT NULL,
+        done INTEGER NOT NULL DEFAULT 0,
+        created_at TEXT NOT NULL
+        )
+    """)
        
 
     conn.commit()
@@ -97,6 +106,57 @@ def delete_checkin(user_id, checkin_id):
     cursor = conn.execute(
         "DELETE FROM checkins WHERE id = ? AND user_id = ?", (checkin_id, user_id)
     )
+    conn.commit()
+    deleted = cursor.rowcount == 1
+    conn.close()
+    return deleted
+
+def add_task(user_id, text):
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    conn = get_connection()
+    cursor = conn.execute(
+        "INSERT INTO tasks (user_id, text, created_at) VALUES (?, ?, ?)",
+        (user_id, text, now),
+    )
+    conn.commit()
+    task_id = cursor.lastrowid
+    conn.close()
+    return task_id
+
+
+def get_tasks(user_id):
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT * FROM tasks WHERE user_id = ? ORDER BY done, id DESC", (user_id,) 
+    ).fetchall()
+    conn.close()
+
+    tasks = []
+    for row in rows:
+        tasks.append({
+            "id": row["id"],
+            "text": row["text"],
+            "done": row["done"] == 1,
+        })
+    return tasks
+
+def set_tasks_done(user_id, task_id, done):
+    conn = get_connection()
+    cursor = conn.execute(
+        "UPDATE tasks SET done = ? WHERE id = ? AND user_id = ?",
+        (1 if done else 0, task_id, user_id),
+    )
+    conn.commit()
+    changed = cursor.rowcount == 1
+    conn.close()
+    return changed
+
+def delete_task(user_id, task_id):
+    conn = get_connection()
+    cursor = conn.execute(
+        "DELETE FROM tasks WHERE id = ? AND user_id = ?", (task_id, user_id)
+    )
+
     conn.commit()
     deleted = cursor.rowcount == 1
     conn.close()

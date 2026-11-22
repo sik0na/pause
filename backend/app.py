@@ -114,5 +114,46 @@ def api_delete_checkin(checkin_id):
         return jsonify({"error": "Check-in not found."}), 404
     return jsonify({"ok": True})
 
+@app.route("/api/tasks") 
+def api_get_tasks():
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+    return jsonify({"tasks": database.get_tasks(session["user_id"])})
+
+@app.route("/api/tasks", methods=["POST"])
+def api_add_task():
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+
+    data = request.get_json(silent = True) or {}
+    text = data.get("text", "").strip()
+
+    if text == "":
+        return jsonify({"error": "The task has no text."}), 400
+    if len(text) > 100:
+        return jsonify({"error": "The task is too long."}), 400
+
+    task_id = database.add_task(session["user_id"], text)
+    return jsonify({"id": task_id, "text": text, "done": False})
+
+@app.route("/api/tasks/<int:task_id>", methods = ["PATCH"])
+def api_update_task(task_id):
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+
+    data = request.get_json(silent = True) or {}
+    done = data.get("done") is True
+    if not database.set_tasks_done(session["user_id"], task_id, done):
+        return jsonify({"error": "Task not found."}), 404
+    return jsonify({"ok": True})
+
+@app.route("/api/tasks/<int:task_id>", methods =["DELETE"])
+def api_delete_task(task_id):
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+    if not database.delete_task(session["user_id"], task_id):
+        return jsonify({"error": "Task not found."}), 404
+    return jsonify({"ok": True})
+
 if __name__ == "__main__":
     app.run(debug=True, port=5050)
