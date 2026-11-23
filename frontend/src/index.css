@@ -1464,10 +1464,11 @@ main {
   z-index: 1;
 }
 
-.card.focus {
+.panel{
   position: relative;
   z-index: 1;
   background: var(--panel);
+  padding: 20px;
   color: var(--panel-line);
   border: 3px solid var(--panel-line);
   border-radius: 0;
@@ -1476,12 +1477,13 @@ main {
   font-size: 20px;
 }
 
-.card.focus button,
-.card.focus input {
+.panel button,
+.panel input {
   font-family: inherit;
 }
 
-.card.focus h2,
+.panel h2,
+.panel h3,
 .timer-digits {
   font-family: var(--pixel-title);
 }
@@ -1490,4 +1492,52 @@ main {
   font-size: 40px;
   color: var(--pixel-accent);
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+main:has(.focus-layout) {
+  max-width: 1100px;
+}
+
+main:has(.focus-layout) .hello{
+  display: none;
+}
+
+.focus-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.timer-panel{
+  justify-self: center;
+  width: 100%;
+  max-width: 430px;
+  margin-top: 12vh;
+  text-align: center;
+}
+
+.focus-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel h3{
+  font-size: 12px;
+  margin: 0 0 12px;
+}
+
+.panel .sounds,
+.panel .tasks{
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .focus-layout{
+    grid-template-columns: 1fr;
+  }
+  .timer-panel{
+    margin-top: 0;
+  }
 }

@@ -147,6 +147,8 @@ export const TEXTS = {
     taskAdd: "Add",
     tasksEmpty: "No tasks yet. Add one small task.",
     taskDelete: "Delete task",
+    sceneTitle: "Scene",
+    soundsTitle: "Sounds",
 
   },
 

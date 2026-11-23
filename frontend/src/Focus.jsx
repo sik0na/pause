@@ -86,60 +86,73 @@ export default function Focus({ t }) {
     switchMode(mode)
   }
 
-  return (
+    return (
     <>
       <Scene name={scene} progress={progress} weather={weather} />
-      <section className="card focus">
-        <h2>{t.focusTitle}</h2>
-  
-    
-  
+
+      <div className="focus-layout">
+        <section className="panel timer-panel">
+          <h2>{t.focusTitle}</h2>
+
           <div className="timer-modes">
-          {SCENES.map((name) => (
-            <button key={name} type="button"
-                    className={name === scene ? "timer-mode active" : "timer-mode"}
-                    onClick={() => setScene(name)}>
-              {t.sceneNames[name]}
-            </button>
-          ))}
-        </div>
-  
-          <div className="timer-modes">
-          {Object.keys(MODES).map((name) => (
-            <button key={name} type="button"
-                    className={name === mode ? "timer-mode active" : "timer-mode"}
-                    onClick={() => switchMode(name)}>
-              {t.timerModes[name]}
-            </button>
-          ))}
-        </div>
-  
-        <p className="timer-digits">{formatTime(secondsLeft)}</p>
-  
-        <div className="timer-buttons">
-          {running
-            ? <button type="button" onClick={pause}>{t.timerPause}</button>
-            : <button type="button" onClick={start}>{t.timerStart}</button>}
-          <button type="button" className="secondary" onClick={reset}>{t.timerReset}</button>
-        </div>
-  
-        <div className="timer-dots">
-          {[0, 1, 2, 3].map((i) => (
-            <span key={i} className={i < rounds % 4 ? "timer-dot done" : "timer-dot"}></span>
-          ))}
-        </div>
-  
-        <div className="timer-modes">
-          {WEATHERS.map((name) => (
-            <button key={name} type="button" className={name === weather ? "timer-mode active" : "timer-mode"}
-            onClick={() => setWeather(name)}>
-              {t.weatherNames[name]}
-            </button>
-          ))}
-        </div>
-        <Sounds t= {t}/> 
-        <Tasks t = {t}/>
-      </section>
+            {Object.keys(MODES).map((name) => (
+              <button key={name} type="button"
+                      className={name === mode ? "timer-mode active" : "timer-mode"}
+                      onClick={() => switchMode(name)}>
+                {t.timerModes[name]}
+              </button>
+            ))}
+          </div>
+
+          <p className="timer-digits">{formatTime(secondsLeft)}</p>
+
+          <div className="timer-buttons">
+            {running
+              ? <button type="button" onClick={pause}>{t.timerPause}</button>
+              : <button type="button" onClick={start}>{t.timerStart}</button>}
+            <button type="button" className="secondary" onClick={reset}>{t.timerReset}</button>
+          </div>
+
+          <div className="timer-dots">
+            {[0, 1, 2, 3].map((i) => (
+              <span key={i} className={i < rounds % 4 ? "timer-dot done" : "timer-dot"}></span>
+            ))}
+          </div>
+        </section>
+
+        <aside className="focus-side">
+          <section className="panel">
+            <h3>{t.sceneTitle}</h3>
+            <div className="timer-modes">
+              {SCENES.map((name) => (
+                <button key={name} type="button"
+                        className={name === scene ? "timer-mode active" : "timer-mode"}
+                        onClick={() => setScene(name)}>
+                  {t.sceneNames[name]}
+                </button>
+              ))}
+            </div>
+            <div className="timer-modes">
+              {WEATHERS.map((name) => (
+                <button key={name} type="button"
+                        className={name === weather ? "timer-mode active" : "timer-mode"}
+                        onClick={() => setWeather(name)}>
+                  {t.weatherNames[name]}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="panel">
+            <h3>{t.soundsTitle}</h3>
+            <Sounds t={t} />
+          </section>
+
+          <section className="panel">
+            <Tasks t={t} />
+          </section>
+        </aside>
+      </div>
     </>
   )
 }
