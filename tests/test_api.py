@@ -115,3 +115,33 @@ def test_tasks_are_private():
 
     assert bob.get("/api/tasks").get_json()["tasks"] == []
     assert bob.delete(f"/api/tasks/{task_id}").status_code == 404
+
+def test_sessions_need_login():
+    response = app.test_client().post("/api/sessions", json={"minutes": 25, "scene": "room"})
+    assert response.status_code == 401
+
+def test_save_and_list_sessions():
+    client = logged_in_client()
+    response = client.post("/api/sessions", json={"minutes": 25, "scene": "lake"})
+    assert response.status_code == 200
+
+    sessions = client.get("/api/sessions").get_json()["sessions"]
+    assert len(sessions) == 1
+    assert sessions[0]["minutes"] == 25
+    assert sessions[0]["scene"] == "lake"
+
+def test_bad_sessions_are_refused():
+    client = logged_in_client()
+    assert client.post("/api/sessions", json={"minutes": 0, "scene": "room"}).status_code == 400
+    assert client.post("/api/sessions", json={"minutes": 999, "scene": "room"}).status_code == 400
+    assert client.post("/api/sessions", json={"minutes": "25", "scene": "room"}).status_code == 400
+    assert client.post("/api/sessions", json={"minutes": True, "scene": "room"}).status_code == 400
+    assert client.post("/api/sessions", json={"minutes": 25, "scene": "moon"}).status_code == 400
+
+def test_sessions_are_private():
+    anna = logged_in_client()
+    anna.post("/api/sessions", json={"minutes": 25, "scene": "city"})
+
+    bob = app.test_client()
+    bob.post("/api/signup", json={"username": "bob", "password": "bluebird123"})
+    assert bob.get("/api/sessions").get_json()["sessions"] == []

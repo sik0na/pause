@@ -155,5 +155,31 @@ def api_delete_task(task_id):
         return jsonify({"error": "Task not found."}), 404
     return jsonify({"ok": True})
 
+SCENES = ["room", "lake", "city"]
+
+@app.route("/api/sessions", methods = ["POST"])
+def api_save_session():
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+
+    data = request.get_json(silent = True) or {}
+    minutes = data.get("minutes")
+    scene = data.get("scene")
+
+    if type(minutes) is not int or minutes < 1 or minutes > 120:
+        return jsonify({"error": "minutes ust be a number from 1 to 120"}), 400
+
+    if scene not in SCENES:
+        return jsonify({"error": "Unknown scene."}), 400
+
+    session_id = database.save_session(session["user_id"], minutes, scene)
+    return jsonify({"id": session_id})
+
+@app.route("/api/sessions")
+def api_get_sessions():
+    if "user_id" not in session:
+        return jsonify({"error": "Please log in."}), 401
+    return jsonify({"sessions": database.get_sessions(session["user_id"])})
+
 if __name__ == "__main__":
     app.run(debug=True, port=5050)

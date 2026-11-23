@@ -39,6 +39,16 @@ def create_tables():
         created_at TEXT NOT NULL
         )
     """)
+
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS focus_sessions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        minutes INTEGER NOT NULL,
+        scene TEXT NOT NULL,
+        finished_at TEXT NOT NULL
+        )
+    """)
        
 
     conn.commit()
@@ -161,3 +171,31 @@ def delete_task(user_id, task_id):
     deleted = cursor.rowcount == 1
     conn.close()
     return deleted
+
+def save_session(user_id, minutes, scene):
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    conn = get_connection()
+    cursor = conn.execute(
+        "INSERT INTO focus_sessions (user_id, minutes, scene, finished_at) VALUES (?, ?, ?, ?)", (user_id, minutes, scene, now)
+    )
+    conn.commit()
+    session_id = cursor.lastrowid
+    conn.close()
+    return session_id
+
+def get_sessions(user_id):
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT * FROM focus_sessions WHERE user_id = ? ORDER BY id DESC", (user_id,)
+    ).fetchall()
+    conn.close()
+
+    sessions = []
+    for row in rows:
+        sessions.append({
+            "id": row["id"],
+            "minutes": row["minutes"],
+            "scene": row["scene"],
+            "finished_at": row["finished_at"],
+        })
+    return sessions
