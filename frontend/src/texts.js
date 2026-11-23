@@ -142,6 +142,11 @@ export const TEXTS = {
         "What is one small thing you could do for yourself today?",
       ],
     },
+    tasksTitle: "Tasks",
+    taskPlaceholder: "Add a task…",
+    taskAdd: "Add",
+    tasksEmpty: "No tasks yet. Add one small task.",
+    taskDelete: "Delete task",
 
   },
 

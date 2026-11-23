@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Scene from "./Scene.jsx"
 import Sounds from "./Sounds.jsx"
+import Tasks from "./Tasks.jsx"
 
 const SCENES = ["room", "lake", "city"]
 const WEATHERS = ["clear", "rain", "snow"]
@@ -135,6 +136,7 @@ export default function Focus({ t }) {
         ))}
       </div>
       <Sounds t= {t}/> 
+      <Tasks t = {t}/>
     </section>
   )
 }
